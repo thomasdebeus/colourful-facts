@@ -1,33 +1,63 @@
 test
 ================
 
-GitHub Documents
-----------------
+Minimal bar chart showing the exit polls results of UK elections.
+-----------------------------------------------------------------
 
-This is an R Markdown format used for publishing markdown documents to GitHub. When you click the **Knit** button all R code chunks are run and a markdown file (.md) suitable for publishing to GitHub is generated.
-
-Including Code
---------------
-
-You can include R code in the document as follows:
+Library needed for this chart:
 
 ``` r
-summary(cars)
+library(ggplot2)
 ```
 
-    ##      speed           dist       
-    ##  Min.   : 4.0   Min.   :  2.00  
-    ##  1st Qu.:12.0   1st Qu.: 26.00  
-    ##  Median :15.0   Median : 36.00  
-    ##  Mean   :15.4   Mean   : 42.98  
-    ##  3rd Qu.:19.0   3rd Qu.: 56.00  
-    ##  Max.   :25.0   Max.   :120.00
+Create data frame with election seats results.
 
-Including Plots
----------------
+``` r
+df <- cbind.data.frame(parties = c("CON", "LAB", "SNP", "LD", "PC", "GRN", "UKIP", "OTH"),
+                       seatsExit = c(314, 266, 34, 14, 3, 1, 0, 18))
+```
 
-You can also embed plots, for example:
+Create custom colour variable from Jinek's chart:
 
-![](test_files/figure-markdown_github-ascii_identifiers/pressure-1.png)
+``` r
+pollColours <- c(CON = "#2481CD",
+                 LAB = "#981D02",
+                 SNP = "#FBEE38",
+                 LD = "#DF7200",
+                 PC = "#62B988",
+                 GRN = "#287C33",
+                 UKIP = "#773B90",
+                 OTH = "#9FA29F")
+```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Bar chart code with ggplot2:
+
+``` r
+chart <- ggplot(df) +
+  geom_bar(stat = "identity", aes(x = reorder(parties, -seatsExit), 
+                                  y = seatsExit, 
+                                  fill = parties)) +
+  scale_fill_manual(values = pollColours) +
+  xlab("Parties") +
+  ylab("Number of seats") +
+  theme(legend.position = "none",
+        panel.background = element_rect(fill = "#F5F0E5")) + 
+  geom_text(aes(x = parties,
+                y = seatsExit,
+                label = seatsExit),
+            colour = "black",
+            nudge_y = 10)
+```
+
+plot:
+
+``` r
+chart
+```
+
+![](test_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-3-1.png)
+
+### Bar chart tips:
+
+-   When you want to flip the axis. Y-axis = parties and X-axis = seats: `chart + coord_flip()`
+-   Overrite the bar aestatics. Remove - (dash) from seats axis to get a descended order again.
