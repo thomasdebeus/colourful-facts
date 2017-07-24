@@ -1,1 +1,1 @@
-# colourful-facts
+# Colourful facts
