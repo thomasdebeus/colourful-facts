@@ -1,5 +1,5 @@
 ---
-title: "How-the-world-sees-the-US-after-Trump"
+title: "How the world sees the US after Trump"
 output: github_document
 ---
 
@@ -7,22 +7,24 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## [How the world sees the U.S.A. after Trump](https://medium.com/tdebeus/how-the-world-sees-the-u-s-a-after-trump-2f2ad6dd0e12)
-
 In this file the code that generated the data visualisation in the article [How the world sees the U.S.A. after Trump](https://medium.com/tdebeus/how-the-world-sees-the-u-s-a-after-trump-2f2ad6dd0e12) on [Colourful Facts](https://medium.com/tdebeus). 
 
 The visualisation deviates from the end result in the portfolio, this is because I finalise the visuals in [Sketch](https://www.sketchapp.com/).
 
-First thing first importing and prepping the data.
+First thing first: loading the used R packages.
+
+ importing and prepping the data.
 ```{r data prep}
 
 # Needed packages.
 library(tidyverse)
 library(googlesheets)
+library(gsheet)
 library(reshape2)
 
-# Running authencation from google sheets in Chrome browser.
+# Running authencation from google in Chrome browser.
 gs_ls()
+
 # Identify spreadsheet.
 df <- gs_title("worlds-view-of-America")
 
@@ -112,4 +114,4 @@ compPlot
 
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
