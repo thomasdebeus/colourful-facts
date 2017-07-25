@@ -7,7 +7,7 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-In this file the code that generated the data visualisation in the article [How the world sees the U.S.A. after Trump](https://medium.com/tdebeus/how-the-world-sees-the-u-s-a-after-trump-2f2ad6dd0e12) on [Colourful Facts](https://medium.com/tdebeus). 
+In this file the code that generated the two data visualisations in the article [How the world sees the U.S.A. after Trump](https://medium.com/tdebeus/how-the-world-sees-the-u-s-a-after-trump-2f2ad6dd0e12) on [Colourful Facts](https://medium.com/tdebeus). 
 
 The visualisation deviates from the end result in the portfolio, this is because I finalise the visuals in [Sketch](https://www.sketchapp.com/).
 
@@ -150,7 +150,8 @@ ggplot() +
                    y = value),
                alpha = 0.3,
                colour = "#3C3970") +
-  theme(panel.background = element_rect(fill = "#F4EBDB"))
+  theme(panel.background = element_rect(fill = "#F4EBDB")) +
+  labs(title = "In most countries the popularity of the U.S.A sank after inauguration Trump")
 
 # Plot
 linePlot
