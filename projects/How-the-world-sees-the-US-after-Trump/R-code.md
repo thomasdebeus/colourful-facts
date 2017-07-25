@@ -5,61 +5,21 @@ In this file the code that generated the data visualisation in the article [How 
 
 The visualisation deviates from the end result in the portfolio, this is because I finalise the visuals in [Sketch](https://www.sketchapp.com/).
 
-First thing first importing and prepping the data.
+First thing first: loading the used R packages.
 
 ``` r
-# Needed packages.
 library(tidyverse)
-```
-
-    ## Loading tidyverse: ggplot2
-    ## Loading tidyverse: tibble
-    ## Loading tidyverse: tidyr
-    ## Loading tidyverse: readr
-    ## Loading tidyverse: purrr
-    ## Loading tidyverse: dplyr
-
-    ## Conflicts with tidy packages ----------------------------------------------
-
-    ## filter(): dplyr, stats
-    ## lag():    dplyr, stats
-
-``` r
 library(googlesheets)
 library(gsheet)
 library(reshape2)
 ```
 
-    ## 
-    ## Attaching package: 'reshape2'
-
-    ## The following object is masked from 'package:tidyr':
-    ## 
-    ##     smiths
+Importing and prepping the data.
 
 ``` r
-# Running authencation from google in Chrome browser.
+# See what's in google spreadsheets.
 gs_ls()
-```
 
-    ## # A tibble: 74 × 10
-    ##                 sheet_title        author  perm version
-    ##                       <chr>         <chr> <chr>   <chr>
-    ## 1    worlds-view-of-America  thomasdebeus    rw     new
-    ## 2  New tweet by @thierryba…  thomasdebeus    rw     new
-    ## 3  New tweet by @fvdemocra…  thomasdebeus    rw     new
-    ## 4  Access open Data reposi…  thomasdebeus    rw     new
-    ## 5        Great data stories  thomasdebeus    rw     new
-    ## 6  Design - Snowfallen sto… bobbie.johns…    rw     new
-    ## 7      Untitled spreadsheet  thomasdebeus    rw     new
-    ## 8      Untitled spreadsheet  thomasdebeus    rw     new
-    ## 9  Overledenen__doodsoorza…  thomasdebeus    rw     new
-    ## 10 Overledenen__doodsoo_06…  thomasdebeus    rw     new
-    ## # ... with 64 more rows, and 6 more variables: updated <dttm>,
-    ## #   sheet_key <chr>, ws_feed <chr>, alternate <chr>, self <chr>,
-    ## #   alt_key <chr>
-
-``` r
 # Identify spreadsheet.
 df <- gs_title("worlds-view-of-America")
 ```
@@ -102,7 +62,7 @@ colnames(confInPres)[1] <- "Country"
 # Data Frame with confidence in Trump.
 confInTrump <- select(confInPres, Country, year_2017)
 
-# Preparing dta frame for Favorability for US.
+# Preparing data frame for Favorability US.
 # Accessing and storing Sheet2 (Favorable view of U.S)
 favUS <- df %>% gs_read(ws = "Sheet2", range = cell_rows(1:38))
 ```
@@ -140,29 +100,8 @@ favUS2017 <- select(favUS, Country, year_2017)
 
 # Look at summary statistics (Same amount of countries? How do the mean and median differ?)
 summary(confInTrump)
-```
-
-    ##    Country            year_2017    
-    ##  Length:37          Min.   : 5.00  
-    ##  Class :character   1st Qu.:14.00  
-    ##  Mode  :character   Median :22.00  
-    ##                     Mean   :26.78  
-    ##                     3rd Qu.:39.00  
-    ##                     Max.   :69.00
-
-``` r
 summary(favUS2017)
-```
 
-    ##    Country            year_2017    
-    ##  Length:37          Min.   :15.00  
-    ##  Class :character   1st Qu.:39.00  
-    ##  Mode  :character   Median :49.00  
-    ##                     Mean   :49.54  
-    ##                     3rd Qu.:57.00  
-    ##                     Max.   :84.00
-
-``` r
 # Rename year column. Getting ready for the merge.
 colnames(confInTrump)[2] <- "Trump" 
 colnames(favUS2017)[2] <- "US"
@@ -174,29 +113,10 @@ mergedDf <- merge(confInTrump, favUS2017, by = "Country")
 filter(mergedDf, US < 50)
 ```
 
-    ##        Country Trump US
-    ## 1    Argentina    13 35
-    ## 2    Australia    29 48
-    ## 3       Canada    22 43
-    ## 4        Chile    12 39
-    ## 5       France    14 46
-    ## 6      Germany    11 35
-    ## 7       Greece    19 43
-    ## 8        India    40 49
-    ## 9    Indonesia    23 48
-    ## 10      Jordan     9 15
-    ## 11     Lebanon    15 34
-    ## 12      Mexico     5 30
-    ## 13 Netherlands    17 37
-    ## 14      Russia    53 41
-    ## 15       Spain     7 31
-    ## 16      Sweden    10 45
-    ## 17     Tunisia    18 27
-    ## 18      Turkey    11 18
-    ## 19   Venezuela    20 47
+Time for visualising the comparison plot.
+-----------------------------------------
 
-Time for visualising
---------------------
+Showing the difference in popularity between Trump and U.S.A. from 37 (in 2017 at least) countries.
 
 ``` r
 compPlot <- ggplot(mergedDf) +
@@ -245,4 +165,4 @@ compPlot <- ggplot(mergedDf) +
 compPlot
 ```
 
-<img src="R-code_files/figure-markdown_github-ascii_identifiers/comparison plot-1.png" width="50%" style="display: block; margin: auto;" />
+![](R-code_files/figure-markdown_github-ascii_identifiers/comparison%20plot-1.png)

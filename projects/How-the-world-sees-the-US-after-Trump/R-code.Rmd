@@ -12,17 +12,17 @@ In this file the code that generated the data visualisation in the article [How 
 The visualisation deviates from the end result in the portfolio, this is because I finalise the visuals in [Sketch](https://www.sketchapp.com/).
 
 First thing first: loading the used R packages.
-
- importing and prepping the data.
-```{r data prep}
-
-# Needed packages.
+```{r packages, message = FALSE, warning = FALSE}
 library(tidyverse)
 library(googlesheets)
 library(gsheet)
 library(reshape2)
+```
 
-# Running authencation from google in Chrome browser.
+Importing and prepping the data.
+
+```{r import, results = "hide"}
+# See what's in google spreadsheets.
 gs_ls()
 
 # Identify spreadsheet.
@@ -38,9 +38,12 @@ colnames(confInPres)[1] <- "Country"
 # Data Frame with confidence in Trump.
 confInTrump <- select(confInPres, Country, year_2017)
 
-# Preparing dta frame for Favorability for US.
+# Preparing data frame for Favorability US.
 # Accessing and storing Sheet2 (Favorable view of U.S)
 favUS <- df %>% gs_read(ws = "Sheet2", range = cell_rows(1:38))
+```
+
+```{r data prep, results='hide'}
 # Rename column names.
 colnames(favUS) <- paste("year", colnames(favUS), sep = "_")
 colnames(favUS)[1] <- "Country"
@@ -63,9 +66,10 @@ filter(mergedDf, US < 50)
 
 ```
 
-## Time for visualising
+## Time for visualising the comparison plot.
+Showing the difference in popularity between Trump and U.S.A. from 37 (in 2017 at least) countries. 
 
-```{r comparison plot, echo=TRUE, out.width = "50%", fig.align = "center"}
+```{r comparison plot, echo=TRUE, fig.height=5, fig.width=3}
 
 compPlot <- ggplot(mergedDf) +
   geom_segment(aes(x = Trump,
