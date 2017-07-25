@@ -43,13 +43,6 @@ Oklahoma <- 947934
 southDakota + northDakota + Wyoming + Montana + Idaho + Nebrasca
 ```
 
-## Little exploratory visual
-```{r, message=FALSE, warning=FALSE}
-# Total votes plot per state
-ggplot(df, aes(x = total_votes, y = state_abbr)) +
-  geom_point(alpha = 0.5)
-```
-
 ## Further data preparation
 ```{r, message=FALSE, warning=FALSE}
 # Data frame without Alaska and with total votes per state.
