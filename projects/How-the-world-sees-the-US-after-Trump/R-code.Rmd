@@ -115,4 +115,18 @@ compPlot
 
 ```
 
+```{r data for line graph, warning=FALSE, results="hide"}
+# Transpose data for line graph with variable year.
+meltFavUS <- melt(favUS, id=c("Country"))
+head(meltFavUS)
+# Change second column name. 
+colnames(meltFavUS)[2] <- "year"
+# Delete "year_" in year value.
+meltFavUS$year <- gsub("year_", "", meltFavUS$year)
+# Convert values to numeric.
+meltFavUS$value <- as.numeric(meltFavUS$value)
+# Arrange on Country
+meltFavUS <- arrange(meltFavUS, Country)
+```
+
 
