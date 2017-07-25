@@ -10,7 +10,6 @@ First thing first: loading the used R packages.
 ``` r
 library(tidyverse)
 library(googlesheets)
-#library(gsheet)
 library(reshape2)
 ```
 
@@ -115,6 +114,11 @@ compPlot
 
 ![](R-code_files/figure-markdown_github-ascii_identifiers/comparison%20plot-1.png)
 
+Data prep for line graph
+------------------------
+
+"In most countries the popularity of the U.S.A sank after inauguration Trump"
+
 ``` r
 # Transpose data for line graph with variable year.
 meltFavUS <- melt(favUS, id=c("Country"))
@@ -128,3 +132,32 @@ meltFavUS$value <- as.numeric(meltFavUS$value)
 # Arrange on Country
 meltFavUS <- arrange(meltFavUS, Country)
 ```
+
+Visualising the data.
+
+``` r
+# Line graph with boxplots to examine the median trend. 
+linePlot <- meltFavUS %>%
+  filter(year %in% c(2009:2017),
+         Country != "Jordan" & Country != "Turkey") %>%
+  na.omit() %>%
+ggplot() +
+  geom_line(aes(x = year, 
+                y = value, 
+                group = Country),
+            alpha = 0.4) +
+  geom_point(aes(x = year,
+                 y = value),
+             alpha = 0.5,
+             colour = "#3C3970") +
+  geom_boxplot(aes(x = year,
+                   y = value),
+               alpha = 0.3,
+               colour = "#3C3970") +
+  theme(panel.background = element_rect(fill = "#F4EBDB"))
+
+# Plot
+linePlot
+```
+
+![](R-code_files/figure-markdown_github-ascii_identifiers/Line%20plot-1.png)
