@@ -7,7 +7,7 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-In this file the code that generated the [lollipop chart](https://cdn-images-1.medium.com/max/2000/1*-IqBA8Rk3dfO4Cn7_Pv0sw.png) in the article [Trump should ignore the Mercator map when showing election results](https://medium.com/tdebeus/trump-should-ignore-the-mercator-map-when-showing-election-results-52ad2d33b740) on [Colourful Facts](https://medium.com/tdebeus). 
+In this file you'll find the code that generated the [lollipop chart](https://cdn-images-1.medium.com/max/2000/1*-IqBA8Rk3dfO4Cn7_Pv0sw.png) in the article [Trump should ignore the Mercator map when showing election results](https://medium.com/tdebeus/trump-should-ignore-the-mercator-map-when-showing-election-results-52ad2d33b740) on [Colourful Facts](https://medium.com/tdebeus). 
 
 When Trump invited some reporters to talk about his 100 days in office, he handed out an election map with the results of 2016. According to Reuters accompanied with the words:
 
