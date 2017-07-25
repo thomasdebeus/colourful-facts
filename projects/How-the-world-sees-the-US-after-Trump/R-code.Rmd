@@ -15,16 +15,12 @@ First thing first: loading the used R packages.
 ```{r packages, message = FALSE, warning = FALSE}
 library(tidyverse)
 library(googlesheets)
-library(gsheet)
 library(reshape2)
 ```
 
 ## Import data
 
-```{r import, results = "hide"}
-# See what's in google spreadsheets.
-gs_ls()
-
+```{r import, message=FALSE, warning=FALSE}
 # Identify spreadsheet.
 df <- gs_title("worlds-view-of-America")
 
@@ -69,8 +65,7 @@ filter(mergedDf, US < 50)
 
 ## Time for visualising the comparison plot.
 Showing the difference in popularity between Trump and U.S.A. from 37 (in 2017 at least) countries. 
-
-```{r comparison plot, echo=TRUE, fig.height=5, fig.width=3}
+```{r comparison plot, echo=TRUE, fig.height=10, fig.width=6}
 
 compPlot <- ggplot(mergedDf) +
   geom_segment(aes(x = Trump,

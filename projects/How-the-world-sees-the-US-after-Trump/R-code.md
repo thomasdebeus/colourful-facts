@@ -10,51 +10,20 @@ First thing first: loading the used R packages.
 ``` r
 library(tidyverse)
 library(googlesheets)
-library(gsheet)
+#library(gsheet)
 library(reshape2)
 ```
 
-Importing and prepping the data.
+Import data
+-----------
 
 ``` r
-# See what's in google spreadsheets.
-gs_ls()
-
 # Identify spreadsheet.
 df <- gs_title("worlds-view-of-America")
-```
 
-    ## Sheet successfully identified: "worlds-view-of-America"
-
-``` r
 # Preparing confidence in Trump data frame.
 # Accessing and storing Sheet1 (Confidence in U.S. presidents).
 confInPres <- df %>% gs_read(ws = "Sheet1", range = cell_rows(1:38))
-```
-
-    ## Accessing worksheet titled 'Sheet1'.
-
-    ## Parsed with column specification:
-    ## cols(
-    ##   X1 = col_character(),
-    ##   `2001` = col_character(),
-    ##   `2003` = col_character(),
-    ##   `2005` = col_character(),
-    ##   `2006` = col_character(),
-    ##   `2007` = col_character(),
-    ##   `2008` = col_character(),
-    ##   `2009` = col_character(),
-    ##   `2010` = col_character(),
-    ##   `2011` = col_character(),
-    ##   `2012` = col_character(),
-    ##   `2013` = col_character(),
-    ##   `2014` = col_character(),
-    ##   `2015` = col_character(),
-    ##   `2016` = col_character(),
-    ##   `2017` = col_integer()
-    ## )
-
-``` r
 # Paste "year" to variables.
 colnames(confInPres) <- paste("year", colnames(confInPres), sep = "_")
 # Rename country column
@@ -67,29 +36,8 @@ confInTrump <- select(confInPres, Country, year_2017)
 favUS <- df %>% gs_read(ws = "Sheet2", range = cell_rows(1:38))
 ```
 
-    ## Accessing worksheet titled 'Sheet2'.
-
-    ## Parsed with column specification:
-    ## cols(
-    ##   X1 = col_character(),
-    ##   `2000` = col_character(),
-    ##   `2002` = col_character(),
-    ##   `2003` = col_character(),
-    ##   `2004` = col_character(),
-    ##   `2005` = col_character(),
-    ##   `2006` = col_character(),
-    ##   `2007` = col_character(),
-    ##   `2008` = col_character(),
-    ##   `2009` = col_character(),
-    ##   `2010` = col_character(),
-    ##   `2011` = col_character(),
-    ##   `2012` = col_character(),
-    ##   `2013` = col_character(),
-    ##   `2014` = col_character(),
-    ##   `2015` = col_character(),
-    ##   `2016` = col_character(),
-    ##   `2017` = col_integer()
-    ## )
+Prepping the data
+-----------------
 
 ``` r
 # Rename column names.
