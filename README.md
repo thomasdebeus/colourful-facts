@@ -1,4 +1,4 @@
-![Colourful Facts](https://cdn-images-1.medium.com/max/1440/1*tAFLq8_KDfas7eK-iwgEWg.png)
+[![Colourful Facts](https://cdn-images-1.medium.com/max/1440/1*tAFLq8_KDfas7eK-iwgEWg.png)](https://medium.com/tdebeus)
 
 Code behind the projects on [Colourful Facts](https://medium.com/tdebeus), a portfolio of my data journalism, data visualisation and information design work.
 
