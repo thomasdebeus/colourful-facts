@@ -39,17 +39,6 @@ Oklahoma <- 947934
 southDakota + northDakota + Wyoming + Montana + Idaho + Nebrasca
 ```
 
-Little exploratory visual
--------------------------
-
-``` r
-# Total votes plot per state
-ggplot(df, aes(x = total_votes, y = state_abbr)) +
-  geom_point(alpha = 0.5)
-```
-
-![](R-code_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-1-1.png)
-
 Further data preparation
 ------------------------
 
