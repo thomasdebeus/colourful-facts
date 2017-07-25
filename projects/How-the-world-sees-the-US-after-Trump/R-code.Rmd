@@ -19,7 +19,7 @@ library(gsheet)
 library(reshape2)
 ```
 
-Importing and prepping the data.
+## Import data
 
 ```{r import, results = "hide"}
 # See what's in google spreadsheets.
@@ -43,6 +43,7 @@ confInTrump <- select(confInPres, Country, year_2017)
 favUS <- df %>% gs_read(ws = "Sheet2", range = cell_rows(1:38))
 ```
 
+## Prepping the data
 ```{r data prep, results='hide'}
 # Rename column names.
 colnames(favUS) <- paste("year", colnames(favUS), sep = "_")
