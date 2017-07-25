@@ -15,6 +15,7 @@ First thing first: loading the used R packages.
 ```{r packages, message = FALSE, warning = FALSE}
 library(tidyverse)
 library(googlesheets)
+#library(gsheet)
 library(reshape2)
 ```
 
