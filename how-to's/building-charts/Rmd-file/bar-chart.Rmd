@@ -57,7 +57,7 @@ ggplot(aes(x = reorder(country.name, values), y = values)) +
        title = "People killed in road accidents")
 ```
 
-We can already quickly gain some insights but still it's not a fair analysis. The countries with the largest number of accidents have also a much bogger population than the other countries. We therefore have to make the values relative to the amount of people. 
+We can already quickly gain some insights but still it's not a fair analysis. The countries with the largest number of accidents have also a much larger population than the other countries. We therefore have to make the values relative to the number of people in the each country. 
 
 First importing the EU population data from wikipedia with the `rvest` package.
 ```{r scraping, message=FALSE, warning=FALSE}
