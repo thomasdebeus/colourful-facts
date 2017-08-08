@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="463px" height="391px" viewBox="0 0 463 391" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>chart</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-176.000000, -141.000000)">
+            <g id="chart" transform="translate(177.000000, 142.000000)">
+                <g id="plot" transform="translate(230.500000, 194.500000) rotate(90.000000) translate(-230.500000, -194.500000) translate(36.000000, -36.000000)">
+                    <polygon id="Fill-1" stroke="#525252" fill="#F5F0E5" points="0 461 389 461 389 0 0 0"></polygon>
+                    <g id="Group-57" transform="translate(66.000000, 23.000000)">
+                        <path d="M0.381895712,386.5 L284.834871,386.5" id="Stroke-4" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,369.5 L284.834871,369.5" id="Stroke-5" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,353.5 L284.834871,353.5" id="Stroke-6" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,337.5 L284.834871,337.5" id="Stroke-7" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,320.5 L284.834871,320.5" id="Stroke-8" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,304.5 L284.834871,304.5" id="Stroke-9" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,287.5 L284.834871,287.5" id="Stroke-10" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,271.5 L284.834871,271.5" id="Stroke-11" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,255.5 L284.834871,255.5" id="Stroke-12" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,238.5 L284.834871,238.5" id="Stroke-13" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,222.5 L284.834871,222.5" id="Stroke-14" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,205.5 L284.834871,205.5" id="Stroke-15" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,189.5 L284.834871,189.5" id="Stroke-16" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,173.5 L284.834871,173.5" id="Stroke-17" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,156.5 L284.834871,156.5" id="Stroke-18" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,140.5 L284.834871,140.5" id="Stroke-19" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,123.5 L284.834871,123.5" id="Stroke-20" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,107.5 L284.834871,107.5" id="Stroke-21" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,91.5 L284.834871,91.5" id="Stroke-22" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,74.5 L284.834871,74.5" id="Stroke-23" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,58.5 L284.834871,58.5" id="Stroke-24" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,41.5 L284.834871,41.5" id="Stroke-25" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,25.5 L284.834871,25.5" id="Stroke-26" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.381895712,9.5 L284.834871,9.5" id="Stroke-27" stroke="#D2D2D2" stroke-linejoin="round" stroke-dasharray="3"></path>
+                        <path d="M0.251631478,397.04 L0.251631478,0.18" id="Stroke-28" stroke="#D2D2D2" stroke-width="1.07" stroke-linejoin="round"></path>
+                        <path d="M70.1559501,397.04 L70.1559501,0.18" id="Stroke-29" stroke="#D2D2D2" stroke-width="1.07" stroke-linejoin="round"></path>
+                        <path d="M140.060269,397.04 L140.060269,0.18" id="Stroke-30" stroke="#D2D2D2" stroke-width="1.07" stroke-linejoin="round"></path>
+                        <path d="M209.970058,397.04 L209.970058,0.18" id="Stroke-31" stroke="#D2D2D2" stroke-width="1.07" stroke-linejoin="round"></path>
+                        <path d="M279.874376,397.04 L279.874376,0.18" id="Stroke-32" stroke="#D2D2D2" stroke-width="1.07" stroke-linejoin="round"></path>
+                        <path d="M0.251631478,394.58 L62.7741448,394.58 C66.8510033,394.58 70.1559501,391.267568 70.1559501,387.2 L70.1559501,387.2 C70.1559501,383.124139 66.8547503,379.82 62.7741448,379.82 L0.251631478,379.82 L0.251631478,394.58 Z" id="Fill-33" fill="#B71C1C"></path>
+                        <path d="M0.251631478,378.18 L71.1638245,378.18 C75.2416125,378.18 78.5473129,374.867568 78.5473129,370.8 L78.5473129,370.8 C78.5473129,366.724139 75.2455041,363.42 71.1638245,363.42 L0.251631478,363.42 L0.251631478,378.18 Z" id="Fill-34" fill="#B71C1C"></path>
+                        <path d="M0.251631478,361.78 L79.5614893,361.78 C83.6327757,361.78 86.9332054,358.467568 86.9332054,354.4 L86.9332054,354.4 C86.9332054,350.324139 83.6278843,347.02 79.5614893,347.02 L0.251631478,347.02 L0.251631478,361.78 Z" id="Fill-35" fill="#B71C1C"></path>
+                        <path d="M0.251631478,345.38 L79.5614893,345.38 C83.6327757,345.38 86.9332054,342.067568 86.9332054,338 L86.9332054,338 C86.9332054,333.924139 83.6278843,330.62 79.5614893,330.62 L0.251631478,330.62 L0.251631478,345.38 Z" id="Fill-36" fill="#B71C1C"></path>
+                        <path d="M0.251631478,328.98 L93.5335373,328.98 C97.6102967,328.98 100.915163,325.667568 100.915163,321.6 L100.915163,321.6 C100.915163,317.524139 97.6088728,314.22 93.5335373,314.22 L0.251631478,314.22 L0.251631478,328.98 Z" id="Fill-37" fill="#B71C1C"></path>
+                        <path d="M0.251631478,312.58 L110.312615,312.58 C114.388368,312.58 117.692418,309.267568 117.692418,305.2 L117.692418,305.2 C117.692418,301.124139 114.397881,297.82 110.312615,297.82 L0.251631478,297.82 L0.251631478,312.58 Z" id="Fill-38" fill="#B71C1C"></path>
+                        <path d="M0.251631478,296.19 L127.086365,296.19 C131.164054,296.19 134.469674,292.877568 134.469674,288.81 L134.469674,288.81 C134.469674,284.734139 131.16859,281.43 127.086365,281.43 L0.251631478,281.43 L0.251631478,296.19 Z" id="Fill-39" fill="#B71C1C"></path>
+                        <path d="M0.251631478,279.79 L135.481629,279.79 C139.557163,279.79 142.861036,276.477568 142.861036,272.41 L142.861036,272.41 C142.861036,268.334139 139.563059,265.03 135.481629,265.03 L0.251631478,265.03 L0.251631478,279.79 Z" id="Fill-40" fill="#B71C1C"></path>
+                        <path d="M0.251631478,263.39 L138.270911,263.39 C142.349767,263.39 145.656334,260.077568 145.656334,256.01 L145.656334,256.01 C145.656334,251.934139 142.346155,248.63 138.270911,248.63 L0.251631478,248.63 L0.251631478,263.39 Z" id="Fill-41" fill="#B71C1C"></path>
+                        <path d="M0.251631478,246.99 L146.668668,246.99 C150.743993,246.99 154.047697,243.677568 154.047697,239.61 L154.047697,239.61 C154.047697,235.534139 150.746394,232.23 146.668668,232.23 L0.251631478,232.23 L0.251631478,246.99 Z" id="Fill-42" fill="#B71C1C"></path>
+                        <path d="M0.251631478,230.59 L152.257205,230.59 C156.333667,230.59 159.638292,227.277568 159.638292,223.21 L159.638292,223.21 C159.638292,219.134139 156.327591,215.83 152.257205,215.83 L0.251631478,215.83 L0.251631478,230.59 Z" id="Fill-43" fill="#B71C1C"></path>
+                        <path d="M0.251631478,214.19 L152.257205,214.19 C156.333667,214.19 159.638292,210.877568 159.638292,206.81 L159.638292,206.81 C159.638292,202.734139 156.327591,199.43 152.257205,199.43 L0.251631478,199.43 L0.251631478,214.19 Z" id="Fill-44" fill="#B71C1C"></path>
+                        <path d="M0.251631478,197.79 L155.056868,197.79 C159.130919,197.79 162.433589,194.477568 162.433589,190.41 L162.433589,190.41 C162.433589,186.334139 159.120451,183.03 155.056868,183.03 L0.251631478,183.03 L0.251631478,197.79 Z" id="Fill-45" fill="#B71C1C"></path>
+                        <path d="M0.251631478,181.39 L166.240113,181.39 C170.31605,181.39 173.62025,178.077568 173.62025,174.01 L173.62025,174.01 C173.62025,169.934139 170.31179,166.63 166.240113,166.63 L0.251631478,166.63 L0.251631478,181.39 Z" id="Fill-46" fill="#B71C1C"></path>
+                        <path d="M0.251631478,164.99 L174.627679,164.99 C178.702692,164.99 182.006142,161.677568 182.006142,157.61 L182.006142,157.61 C182.006142,153.534139 178.696299,150.23 174.627679,150.23 L0.251631478,150.23 L0.251631478,164.99 Z" id="Fill-47" fill="#B71C1C"></path>
+                        <path d="M0.251631478,148.59 L177.429638,148.59 C181.503993,148.59 184.80691,145.277568 184.80691,141.21 L184.80691,141.21 C184.80691,137.134139 181.505559,133.83 177.429638,133.83 L0.251631478,133.83 L0.251631478,148.59 Z" id="Fill-48" fill="#B71C1C"></path>
+                        <path d="M0.251631478,132.19 L180.229016,132.19 C184.301117,132.19 187.602207,128.877568 187.602207,124.81 L187.602207,124.81 C187.602207,120.734139 184.290836,117.43 180.229016,117.43 L0.251631478,117.43 L0.251631478,132.19 Z" id="Fill-49" fill="#B71C1C"></path>
+                        <path d="M0.251631478,115.8 L188.613232,115.8 C192.686259,115.8 195.9881,112.487568 195.9881,108.42 L195.9881,108.42 C195.9881,104.344139 192.693239,101.04 188.613232,101.04 L0.251631478,101.04 L0.251631478,115.8 Z" id="Fill-50" fill="#B71C1C"></path>
+                        <path d="M0.251631478,99.4 L199.795026,99.4 C203.87074,99.4 207.17476,96.0875679 207.17476,92.02 L207.17476,92.02 C207.17476,87.9441385 203.861728,84.64 199.795026,84.64 L0.251631478,84.64 L0.251631478,99.4 Z" id="Fill-51" fill="#B71C1C"></path>
+                        <path d="M0.251631478,83 L208.180402,83 C212.256402,83 215.560653,79.6875679 215.560653,75.62 L215.560653,75.62 C215.560653,71.5441385 212.26482,68.24 208.180402,68.24 L0.251631478,68.24 L0.251631478,83 Z" id="Fill-52" fill="#B71C1C"></path>
+                        <path d="M0.251631478,66.6 L224.96013,66.6 C229.034764,66.6 232.337908,63.2875679 232.337908,59.22 L232.337908,59.22 C232.337908,55.1441385 229.034804,51.84 224.96013,51.84 L0.251631478,51.84 L0.251631478,66.6 Z" id="Fill-53" fill="#B71C1C"></path>
+                        <path d="M0.251631478,50.2 L227.753722,50.2 C231.832319,50.2 235.138676,46.8875679 235.138676,42.82 L235.138676,42.82 C235.138676,38.7441385 231.840694,35.44 227.753722,35.44 L0.251631478,35.44 L0.251631478,50.2 Z" id="Fill-54" fill="#B71C1C"></path>
+                        <path d="M0.251631478,33.8 L258.515731,33.8 C262.592784,33.8 265.897889,30.4875679 265.897889,26.42 L265.897889,26.42 C265.897889,22.3441385 262.587223,19.04 258.515731,19.04 L0.251631478,19.04 L0.251631478,33.8 Z" id="Fill-55" fill="#B71C1C"></path>
+                        <path d="M0.251631478,17.4 L261.303729,17.4 C265.384814,17.4 268.693186,14.0875679 268.693186,10.02 L268.693186,10.02 C268.693186,5.94413855 265.395941,2.64 261.303729,2.64 L0.251631478,2.64 L0.251631478,17.4 Z" id="Fill-56" fill="#B71C1C"></path>
+                    </g>
+                    <g id="countries" transform="translate(70.000000, 28.000000)" font-weight="bold" font-size="10" font-family="RobotoCondensed-Bold, Roboto Condensed" fill="#F0F0F0" font-style="condensed">
+                        <text id="Malta">
+                            <tspan x="0" y="386">Malta</tspan>
+                        </text>
+                        <text id="United-Kingdom">
+                            <tspan x="0" y="369">United Kingdom</tspan>
+                        </text>
+                        <text id="Denmark">
+                            <tspan x="0" y="353">Denmark</tspan>
+                        </text>
+                        <text id="Netherlands">
+                            <tspan x="0" y="337">Netherlands</tspan>
+                        </text>
+                        <text id="Spain">
+                            <tspan x="0" y="320">Spain</tspan>
+                        </text>
+                        <text id="Germany">
+                            <tspan x="0" y="304">Germany</tspan>
+                        </text>
+                        <text id="Finland">
+                            <tspan x="0" y="287">Finland</tspan>
+                        </text>
+                        <text id="Estonia">
+                            <tspan x="0" y="271">Estonia</tspan>
+                        </text>
+                        <text id="France">
+                            <tspan x="0" y="255">France</tspan>
+                        </text>
+                        <text id="Austria">
+                            <tspan x="0" y="238">Austria</tspan>
+                        </text>
+                        <text id="Italy">
+                            <tspan x="0" y="222">Italy</tspan>
+                        </text>
+                        <text id="Portugal">
+                            <tspan x="0" y="205">Portugal</tspan>
+                        </text>
+                        <text id="Slovenia">
+                            <tspan x="0" y="189">Slovenia</tspan>
+                        </text>
+                        <text id="Luxembourg">
+                            <tspan x="0" y="172">Luxembourg</tspan>
+                        </text>
+                        <text id="Belgium">
+                            <tspan x="0" y="156">Belgium</tspan>
+                        </text>
+                        <text id="Hungary">
+                            <tspan x="0" y="140">Hungary</tspan>
+                        </text>
+                        <text id="Cyprus">
+                            <tspan x="0" y="123">Cyprus</tspan>
+                        </text>
+                        <text id="Czech-Republic">
+                            <tspan x="0" y="107">Czech Republic</tspan>
+                        </text>
+                        <text id="Greece">
+                            <tspan x="0" y="91">Greece</tspan>
+                        </text>
+                        <text id="Poland">
+                            <tspan x="0" y="74">Poland</tspan>
+                        </text>
+                        <text id="Croatia">
+                            <tspan x="0" y="58">Croatia</tspan>
+                        </text>
+                        <text id="Lithuania">
+                            <tspan x="0" y="41">Lithuania</tspan>
+                        </text>
+                        <text id="Latvia">
+                            <tspan x="0" y="25">Latvia</tspan>
+                        </text>
+                        <text id="Romania">
+                            <tspan x="0" y="9">Romania</tspan>
+                        </text>
+                    </g>
+                    <g id="Group-59" transform="translate(130.000000, 422.000000)" font-weight="normal" font-family="RobotoCondensed-Regular, Roboto Condensed" fill="#737373" font-size="10" font-style="condensed">
+                        <text id="2.5" transform="translate(5.500000, 7.500000) rotate(-90.000000) translate(-5.500000, -7.500000) ">
+                            <tspan x="-1" y="11">2.5</tspan>
+                        </text>
+                        <text id="5" transform="translate(75.500000, 3.500000) rotate(-90.000000) translate(-75.500000, -3.500000) ">
+                            <tspan x="73" y="7">5</tspan>
+                        </text>
+                        <text id="7.5" transform="translate(145.500000, 7.500000) rotate(-90.000000) translate(-145.500000, -7.500000) ">
+                            <tspan x="139" y="11">7.5</tspan>
+                        </text>
+                        <text id="10" transform="translate(215.000000, 5.500000) rotate(-90.000000) translate(-215.000000, -5.500000) ">
+                            <tspan x="210" y="9">10</tspan>
+                        </text>
+                    </g>
+                </g>
+                <path d="M0,377.008614 C0,374.242433 2.23649162,372 5.00065217,372 L455.999348,372 C458.761132,372 461,374.239934 461,377.008614 L461,389 L0,389 L0,377.008614 Z" id="Rectangle" fill="#525252"></path>
+                <g id="annotation" transform="translate(7.000000, 9.000000)">
+                    <text id="People-killed-in-roa" font-family="RobotoCondensed-Bold, Roboto Condensed" font-size="18" font-style="condensed" font-weight="bold" fill="#3C3C3C">
+                        <tspan x="33" y="17">People killed in road accident</tspan>
+                        <tspan x="246.416016" y="17" letter-spacing="-0.54">s</tspan>
+                    </text>
+                    <text id="EU-member-states-(20" font-family="RobotoCondensed-Regular, Roboto Condensed" font-size="14" font-style="condensed" font-weight="normal" fill="#525252">
+                        <tspan x="33" y="34">EU member states (2015).</tspan>
+                    </text>
+                    <text id="Per-100,000-citizens" font-family="RobotoCondensed-Regular, Roboto Condensed" font-size="10" font-style="condensed" font-weight="normal" fill="#737373">
+                        <tspan x="1" y="52">Per 100,000 </tspan>
+                        <tspan x="1" y="63">citizens</tspan>
+                    </text>
+                    <path d="M25.5,71 L25.5,89.5" id="Path-2" stroke="#737373"></path>
+                    <polygon id="Triangle" stroke="#737373" transform="translate(25.500000, 96.000000) rotate(180.000000) translate(-25.500000, -96.000000) " points="25.5 91 28 101 25.5 99 23 101"></polygon>
+                    <text id="@TdeBeus" font-family="PermanentMarker, Permanent Marker" font-size="9" font-weight="normal" fill="#F5F0E5">
+                        <tspan x="403" y="375">@TdeBeus</tspan>
+                    </text>
+                    <text id="Data:-Eurostat" font-family="RobotoCondensed-Regular, Roboto Condensed" font-size="9" font-style="condensed" font-weight="normal" fill="#F5F0E5">
+                        <tspan x="0" y="374">Data: Eurostat</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
