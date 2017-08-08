@@ -17,7 +17,7 @@ When you already work in R you can therefore better use the `cbsodataR` [package
 
 You can include R code in the document as follows:
 
-```{r list, message=FALSE, warning=FALSE, results='hide', eval=FALSE}
+```{r list, eval=FALSE}
 library(cbsodataR)
 
 # Retrieve a list of all the data sets on CBS Statline. 
@@ -26,7 +26,7 @@ tables <- get_table_list(Language = "nl")
 
 When importing a data set from CBS Statline it's recommended to first search for the right data set on [CBS Statline](http://statline.cbs.nl/Statweb/) then copy paste the title of that data set in the search bar of your `tables` variable. You'll immediatly get the right identifier to use when you want to access the data set.
 
-```{r access, message=FALSE, warning=FALSE, results='hide', eval=FALSE}
+```{r access, eval=FALSE}
 # In this example the data set "Bevolkingsontwikkeling; regio per maand" is used.
 df <- get_data("37230ned")
 ```

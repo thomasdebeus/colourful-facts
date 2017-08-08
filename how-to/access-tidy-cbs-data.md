@@ -12,13 +12,13 @@ You can include R code in the document as follows:
 ``` r
 library(cbsodataR)
 
-# Retrieve a list of all the data sets on CBS Statline 
+# Retrieve a list of all the data sets on CBS Statline. 
 tables <- get_table_list(Language = "nl")
 ```
 
 When importing a data set from CBS Statline it's recommended to first search for the right data set on [CBS Statline](http://statline.cbs.nl/Statweb/) then copy paste the title of that data set in the search bar of your `tables` variable. You'll immediatly get the right identifier to use when you want to access the data set.
 
 ``` r
-# In the following example the data set "Bevolkingsontwikkeling; regio per maand" is used.
+# In this example the data set "Bevolkingsontwikkeling; regio per maand" is used.
 df <- get_data("37230ned")
 ```
