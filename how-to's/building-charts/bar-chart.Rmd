@@ -1,0 +1,104 @@
+---
+title: "Bar chart"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+First things first, start with preparing your data frame.
+```{r}
+library(tidyverse)
+library(eurostat)
+library(countrycode)
+library(rvest)
+library(ggthemes)
+
+# Query eurostat data set
+search <- search_eurostat("road", type = "table")
+# Accessing "People killed in road accidents" data set.
+df <- get_eurostat("tsdtr420")
+# Create a data frame filtered on most recent data (2015)
+accidents2015 <- 
+  get_eurostat("tsdtr420") %>%
+  filter(time == "2015-01-01")
+# Convert country codes to country names with the countrycode package
+accidents2015$country.name <- countrycode(sourcevar = accidents2015$geo, "eurostat", "country.name")
+# Create a data frame with only the needed columns
+accidents2015Names <- accidents2015[,c(3,6,5)]
+# Edit the very long country name "United Kingdom of Great Britain and Northern Ireland""
+accidents2015Names$country.name[27] <- "United Kingdom"
+
+```
+
+Now we have the data frame prepared it's time for plotting a bar chart.
+
+First a horizontal bar chart:
+```{r}
+accidents2015Names %>%
+  ggplot(aes(x = country.name, y = values)) +
+  geom_col() +
+  xlab(NULL)
+```
+
+But more suited is the vertical bar chart because the country names are too long as a label for the x axis. It also helps when we order the countries on the number (values) of accidents.
+```{r, message=FALSE, warning=FALSE}
+accidents2015Names %>%
+ggplot(aes(x = reorder(country.name, values), y = values)) +
+  geom_col() +
+  coord_flip() +
+  xlab(NULL) +
+  ylab("accidents")
+```
+
+We can already quickly gain some insights but still it's not a fair analysis. The countries with the largest number of accidents have also a much bogger population than the other countries. We therefore have to make the values relative to the amount of people. 
+
+First importing the EU population data from wikipedia with the `rvest` package.
+```{r}
+scotusURL <- "https://en.wikipedia.org/wiki/Demographics_of_the_European_Union"
+
+temp <- scotusURL %>% 
+  read_html %>%
+  html_nodes("table")
+
+# Storing the retrieved information in a variable and convert list into data frame.
+wikiPop <- html_table(temp[1])
+wikiPop <- as.data.frame(wikiPop)
+```
+
+Now we need the `Population` and the `Member.State` column to merge with the accidents2015 data frame.
+```{r}
+PopulationEU <- select(wikiPop, Member.State, Population)
+# Change the column name to match with the accidents2015 variable.
+colnames(PopulationEU) <- c("country.name", "Population")
+# Merge data frames
+merged <- merge(accidents2015Names, PopulationEU, by = "country.name", all.x = TRUE)
+# Remove columns that aren't EU member states.
+newMerged <- merged %>%
+  filter(country.name != c("Iceland", "Norway"),
+         country.name != "Switzerland")
+# Convert character to numeric.
+newMerged$Population <- gsub(",", "", newMerged$Population)
+newMerged$Population <- as.numeric(newMerged$Population)
+# Calculate relative number 1:100,000
+newMerged <- mutate(newMerged,
+       per_100.000 = round((values / Population) * 100000, digits = 1)) %>%
+  select(c(1:5))
+```
+
+Let's create a more 'honest' representation of the accidents data.
+```{r}
+newMerged %>%
+  ggplot(aes(x = reorder(country.name, per_100.000),
+             y = per_100.000)) +
+  geom_col() +
+  coord_flip() +
+  labs(y = "Accidents per 100,000 citizens", # Remember that coord_flip() function is used.
+       x = NULL) +
+  theme_fivethirtyeight()
+```
+
+Now you see that Huge countries like United Kingdom, Germany and Spain are actually doing pretty good.
+
+
