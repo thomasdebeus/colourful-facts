@@ -1,16 +1,11 @@
----
-title: "Building a Bar chart"
-output: github_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+Building a Bar chart
+================
 
 In this file you'll be guide through the steps of building the famous and renowned bar chart. We'll create horizontal, vertical and reordered charts on values and therefore gain better insights. It's always the case that we import, prepare and tidy our data first before analysising and visualising.
 
 First things first, start with preparing our data frame.
-```{r data prep, message=FALSE, warning=FALSE}
+
+``` r
 library(tidyverse)
 library(eurostat)
 library(countrycode)
@@ -31,23 +26,26 @@ accidents2015$country.name <- countrycode(sourcevar = accidents2015$geo, "eurost
 accidents2015Names <- accidents2015[,c(3,6,5)]
 # Edit the very long country name "United Kingdom of Great Britain and Northern Ireland""
 accidents2015Names$country.name[27] <- "United Kingdom"
-
 ```
 
-When quickly analysing the data we see that Germany and France have exactly the same number of people killed in road accidents. Normally we should check how the data is gathered etc. but here our main purpose is to visualise the data anylysis. 
+When quickly analysing the data we see that Germany and France have exactly the same number of people killed in road accidents. Normally we should check how the data is gathered etc. but here our main purpose is to visualise the data anylysis.
 
 Now we have the data frame prepared it's time for plotting a bar chart.
 
 First a horizontal bar chart:
-```{r chart1, fig.align = "center"}
+
+``` r
 accidents2015Names %>%
   ggplot(aes(x = country.name, y = values)) +
   geom_col() +
   xlab(NULL)
 ```
 
+<img src="bar-chart_files/figure-markdown_github-ascii_identifiers/chart1-1.png" style="display: block; margin: auto;" />
+
 But more suited is the vertical bar chart because the country names are too long as a label for the x axis. It also helps when we order the countries on the number (values) of accidents.
-```{r chart2, fig.align = "center"}
+
+``` r
 accidents2015Names %>%
 ggplot(aes(x = reorder(country.name, values), y = values)) +
   geom_col() +
@@ -57,10 +55,13 @@ ggplot(aes(x = reorder(country.name, values), y = values)) +
        title = "People killed in road accidents")
 ```
 
-We can already quickly gain some insights but still it's not a fair analysis. The countries with the largest number of accidents have also a much bogger population than the other countries. We therefore have to make the values relative to the amount of people. 
+<img src="bar-chart_files/figure-markdown_github-ascii_identifiers/chart2-1.png" style="display: block; margin: auto;" />
+
+We can already quickly gain some insights but still it's not a fair analysis. The countries with the largest number of accidents have also a much bogger population than the other countries. We therefore have to make the values relative to the amount of people.
 
 First importing the EU population data from wikipedia with the `rvest` package.
-```{r scraping, message=FALSE, warning=FALSE}
+
+``` r
 scotusURL <- "https://en.wikipedia.org/wiki/Demographics_of_the_European_Union"
 
 temp <- scotusURL %>% 
@@ -73,7 +74,8 @@ wikiPop <- as.data.frame(wikiPop)
 ```
 
 Now we need the `Population` and the `Member.State` column to merge with the accidents2015 data frame.
-```{r data prep2, message=FALSE, warning=FALSE}
+
+``` r
 PopulationEU <- select(wikiPop, Member.State, Population)
 # Change the column name to match with the accidents2015 variable.
 colnames(PopulationEU) <- c("country.name", "Population")
@@ -93,7 +95,8 @@ newMerged <- mutate(newMerged,
 ```
 
 Let's create a more 'honest' representation of the accidents data.
-```{r chart3, fig.align = "center"}
+
+``` r
 newMerged %>%
   ggplot(aes(x = reorder(country.name, per_100.000),
              y = per_100.000)) +
@@ -105,6 +108,6 @@ newMerged %>%
   theme_fivethirtyeight()
 ```
 
+<img src="bar-chart_files/figure-markdown_github-ascii_identifiers/chart3-1.png" style="display: block; margin: auto;" />
+
 Now you see that Huge countries like United Kingdom, Germany and Spain are actually doing pretty good, while countries in the eastern part of EU top the list.
-
-
