@@ -57,3 +57,20 @@ merged %>%
   theme(panel.grid = element_line(linetype = "dashed"))
 ```
 
+#-------------
+
+```{r}
+df %>%
+  filter(Afvalsoort == "Totaal huishoudelijk afval") %>%
+  ggplot(aes(x = Perioden, y = Waste)) +
+  geom_line(aes(group = RegioS),
+            alpha = 0.15,
+            colour = "#004D40") +
+  theme_fivethirtyeight() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.major.y = element_line(size = 1))
+
+df %>%
+  filter(Waste > 1250)
+
+```
