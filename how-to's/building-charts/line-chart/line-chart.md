@@ -1,14 +1,10 @@
----
-title: "Line chart"
-output: github_document
----
+Line chart
+================
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+Data import and preperation.
+----------------------------
 
-## Data import and preperation.
-```{r import and preperation, message=FALSE, warning=FALSE, results='hide'}
+``` r
 library(tidyverse)
 library(cbsodataR)
 library(ggthemes)
@@ -29,10 +25,12 @@ totalWaste <- df %>%
 totalWaste$Perioden <- as.numeric(as.character(totalWaste$Perioden))
 ```
 
-## Taking a closer look at the NA values
+Taking a closer look at the NA values
+-------------------------------------
 
-When looking at the `totalWaste` data frame you see clearly a downwards trend. Because There are quite a lot of NA values, it's a good habit to check wether the number of NA values causes this downwards trend. 
-```{r NA values}
+When looking at the `totalWaste` data frame you see clearly a downwards trend. Because There are quite a lot of NA values, it's a good habit to check wether the number of NA values causes this downwards trend.
+
+``` r
 # Counting NA's for each Period
 isNA <- df %>%
   group_by(Perioden) %>%
@@ -41,10 +39,12 @@ isNA <- df %>%
 merged <- merge(totalWaste, isNA)
 ```
 
-## Time for plotting
+Time for plotting
+-----------------
 
 Now, the difference between the growing number of NA's per year isn't that big as the decline of domestic waste. When taking the NA values in to account we can conclude there's still a big difference between the years 2001-2015. Finally, we can proceed with plotting the line chart.
-```{r}
+
+``` r
 # Plotting line chart
 merged %>%
   ggplot(aes(x = Perioden, y = Waste, group = 1)) +
@@ -57,3 +57,4 @@ merged %>%
   theme(panel.grid = element_line(linetype = "dashed"))
 ```
 
+![](line-chart_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-1-1.png)
