@@ -1,0 +1,67 @@
+---
+title: "Line chart"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Data import and preperation.
+```{r}
+library(tidyverse)
+library(cbsodataR)
+library(ggthemes)
+
+# Access CBS table list
+tables <- get_table_list()
+# Retrieve data set with identifier: "Huishoudelijk afval per gemeente per inwoner"
+df <- get_data('83452NED')
+# Convert to numeric value
+df$HoeveelheidHuishoudelijkAfval_1 <- as.numeric(df$HoeveelheidHuishoudelijkAfval_1) 
+# rename long variable
+df <- rename(df, Waste = HoeveelheidHuishoudelijkAfval_1)
+# Total domestic waste
+totalWaste <- df %>%
+  group_by(Perioden) %>%
+  summarise(Waste = sum(Waste, na.rm = TRUE))
+# Convert Perioden variable
+totalWaste$Perioden <- as.numeric(as.character(totalWaste$Perioden))
+```
+
+```{r}
+# Counting NA's for each Period
+isNA <- df %>%
+  group_by(Perioden) %>%
+  summarise(isNA = sum(is.na(Waste)))
+
+merged <- merge(totalWaste, isNA)
+```
+
+
+
+```{r}
+# Plotting line chart
+merged %>%
+  ggplot(aes(x = Perioden, y = Waste, group = 1)) +
+  geom_point() +
+  geom_line() +
+  scale_y_continuous(limits = c(200000,600000)) +
+  scale_x_continuous(breaks = seq(2001,2015,2)) +
+  labs(title = "Kilo's huishoudelijk afval in Nederland\ndaalt flink") +
+  theme_fivethirtyeight() +
+  theme(panel.grid = element_line(linetype = "dashed"))
+```
+
+
+
+
+  
+
+
+
+
+
+
+
+
