@@ -1,15 +1,12 @@
----
-title: "Line chart"
-output: github_document
----
+Line chart
+================
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 In this document examples of the use of line charts. Maybe not the most exciting topic: the Trend of collected domestic waste. However, it's just an excercise in line charts. Data was retrieved from the [CBS](http://statline.cbs.nl/Statweb/).
 
-## Data import and preperation.
-```{r import and preperation, message=FALSE, warning=FALSE, results='hide'}
+Data import and preperation.
+----------------------------
+
+``` r
 library(tidyverse)
 library(cbsodataR)
 library(ggthemes)
@@ -30,13 +27,14 @@ df <- df %>%
          Regio = RegioS) %>%
   mutate(Perioden = as.numeric(as.character(Perioden)),
          Waste = as.numeric(Waste))
-  
 ```
 
-## Plotting all counties (gemeentes)
+Plotting all counties (gemeentes)
+---------------------------------
 
 To see the trend between 2001 - 2015 we can plot all the counties as lines. Then draw the aggregate line with `geom_smooth` to see the average trend.
-```{r plot-totals, message=FALSE, warning=FALSE}
+
+``` r
 plotTotal <- df %>%
   ggplot(aes(x = Perioden, y = Waste)) +
   geom_line(aes(group = Regio),
@@ -57,12 +55,16 @@ plotTotal <- df %>%
 plotTotal
 ```
 
-## Plotting without outliers
+![](line-chart_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-1-1.png)
 
-It looks like there's neither a increase nor a decreasing trend. We clearly see a few outliers (mainly the 'Waddeneilanden' beacause of the tourism industry). They prevent us to see the underlying trend. Good practise is therefore to remove outliers because they skew the average. 
+Plotting without outliers
+-------------------------
+
+It looks like there's neither a increase nor a decreasing trend. We clearly see a few outliers (mainly the 'Waddeneilanden' beacause of the tourism industry). They prevent us to see the underlying trend. Good practise is therefore to remove outliers because they skew the average.
 
 You'l also see a few lines that aren't connected. This is because there are some NA values, something to keep in mind.
-```{r plot-no-outliers, message=FALSE, warning=FALSE}
+
+``` r
 plotNoOutliers <- df %>%
   filter(Waste != "NA") %>%
   ggplot(aes(x = Perioden, y = Waste)) +
@@ -84,22 +86,28 @@ plotNoOutliers <- df %>%
 plotNoOutliers
 ```
 
-## Taking a closer look at the NA values
+![](line-chart_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-2-1.png)
 
-That's better, now a downwards trend appears. This seems rather remarkable because the population in the Netherlands is growing rather rapidly. 
+Taking a closer look at the NA values
+-------------------------------------
 
-Because there are quite some NA values, it's a good habit to check whether the number of NA values could cause this downwards trend. 
-```{r NA values, message=FALSE, warning=FALSE}
+That's better, now a downwards trend appears. This seems rather remarkable because the population in the Netherlands is growing rather rapidly.
+
+Because there are quite some NA values, it's a good habit to check whether the number of NA values could cause this downwards trend.
+
+``` r
 # Counting NA's for each Period
 NaPerYear <- df %>%
   group_by(Perioden) %>%
   summarise(isNA = sum(is.na(Waste)))
 ```
 
-## Plotting NA's per year
+Plotting NA's per year
+----------------------
 
-Now, the number of NA's is increasing with each year. 
-```{r NA-plot, message=FALSE, warning=FALSE}
+Now, the number of NA's is increasing with each year.
+
+``` r
 plotNA <- NaPerYear %>%
   ggplot(aes(x = Perioden, y = isNA)) +
   geom_line(aes(group = 1),
@@ -111,19 +119,34 @@ plotNA <- NaPerYear %>%
         panel.background = element_rect(fill = "#F5F0E5"))
   labs(title = "Number of missing values (NA's) in data frame\nis increasing",
        subtitle = "This can be the reason behind the country's waste decrease.")
+```
 
+    ## $title
+    ## [1] "Number of missing values (NA's) in data frame\nis increasing"
+    ## 
+    ## $subtitle
+    ## [1] "This can be the reason behind the country's waste decrease."
+    ## 
+    ## attr(,"class")
+    ## [1] "labels"
+
+``` r
 plotNA
 ```
 
+![](line-chart_files/figure-markdown_github-ascii_identifiers/NA%20plot-1.png)
 
-## Quickest growing cities.
+Quickest growing cities.
+------------------------
+
 So there are multiple ways of checking wether the growing amount of missing values have an effect on the overal trend. I used population data of the biggest and the quickest growing cities in the Netherlands to check if the downwards trend is still there.
-```{r cities data, message=FALSE, warning=FALSE, results='hide'}
+
+``` r
 # Download dat set
 cities <- get_data("70748ned")
 ```
 
-```{r big-cities-df, message=FALSE, warning=FALSE}
+``` r
 # Create data frame 
 bigCities <- cities %>%
   select(Perioden, Gemeenten, TotaleBevolking100_1) %>%
@@ -134,12 +157,14 @@ bigCities <- cities %>%
          Gemeenten != "Overige gemeenten",
          Totale.Bevolking != "",
          Totale.Bevolking > 200000)
-
 ```
 
-## Quickest growing cities
+Quickest growing cities
+-----------------------
+
 In a quick wikipedia search I filtered on the 10 quickest growing cities.
-```{r cities-data-top-10, message=FALSE, warning=FALSE, results='hide'}
+
+``` r
 bigCities2 <- df %>%
   filter(Regio == "Amsterdam" |
          Regio == "Rotterdam" |
@@ -155,11 +180,14 @@ bigCities2 <- df %>%
 bigCities2$Regio <- gsub("'s-Gravenhage (gemeente)", "Den Haag", bigCities2$Regio, fixed = TRUE)
 ```
 
-## Plot, 10 biggest cities
-When plotting these cities there's still a downwards trend that starts after the year 2007. What also stands out is that these cities, as time progresses, are closer together looking at the gathered domestic waste. Also a striking result is that our biggest city Amsterdam is at the bottom of the plot. 
+Plot, 10 biggest cities
+-----------------------
+
+When plotting these cities there's still a downwards trend that starts after the year 2007. What also stands out is that these cities, as time progresses, are closer together looking at the gathered domestic waste. Also a striking result is that our biggest city Amsterdam is at the bottom of the plot.
 
 These observations need further research. It's probably time to pick up the phone and call some experts with the domain knowledge I lag.
-```{r plot-big-cities, message=FALSE, warning=FALSE}
+
+``` r
 bigCities2 %>%
   ggplot(aes(x = Perioden, y = Waste)) +
   geom_line(aes(colour = Regio),
@@ -179,7 +207,4 @@ bigCities2 %>%
   annotate("label", x = 2004, y = 575, label = "Average")
 ```
 
-
-
-
-
+![](line-chart_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-4-1.png)
