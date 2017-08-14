@@ -6,6 +6,6 @@ In this repository you'll find the code behind the projects on [Colourful Facts]
 
 Code is written in R and Rmarkdown. End results are always finalised in Sketch. Sometimes the visuals are entirely created in Sketch and therefore do not appear in this repository. 
 
-## How to's
+## Guides
 
-I also keep a folder with ['how to reports'](https://github.com/thomasdebeus/colourful-facts/tree/master/how-to's). These reports can for example contain explantions of how to build perticular graphs.
+I also keep a folder with ['guides'](https://github.com/thomasdebeus/colourful-facts/tree/master/guides). These guides can for example contain explantions of how to build perticular chart types.
