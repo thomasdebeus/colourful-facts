@@ -8,4 +8,4 @@ Code is written in R and Rmarkdown. End results are always finalised in Sketch. 
 
 ## How to's
 
-I also keep a folder with ['how to reports'](https://github.com/thomasdebeus/colourful-facts/tree/master/how-to's). These reports can for example contain explantions of how to build perticulair graphs.
+I also keep a folder with ['how to reports'](https://github.com/thomasdebeus/colourful-facts/tree/master/how-to's). These reports can for example contain explantions of how to build perticular graphs.
