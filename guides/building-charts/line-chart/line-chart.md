@@ -55,7 +55,7 @@ plotTotal <- df %>%
 plotTotal
 ```
 
-![](line-chart_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-1-1.png)
+![](line-chart_files/All-counties.png)
 
 Plotting without outliers
 -------------------------
@@ -86,7 +86,7 @@ plotNoOutliers <- df %>%
 plotNoOutliers
 ```
 
-![](line-chart_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-2-1.png)
+![](line-chart_files/counties-without-outliers.png)
 
 Taking a closer look at the NA values
 -------------------------------------
@@ -134,7 +134,7 @@ plotNA <- NaPerYear %>%
 plotNA
 ```
 
-![](line-chart_files/figure-markdown_github-ascii_identifiers/NA%20plot-1.png)
+![](line-chart_files/NA-plot.png)
 
 Quickest growing cities.
 ------------------------
@@ -207,4 +207,4 @@ bigCities2 %>%
   annotate("label", x = 2004, y = 575, label = "Average")
 ```
 
-![](line-chart_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-4-1.png)
+![](line-chart_files/10-biggest-cities.png)
