@@ -1,0 +1,62 @@
+---
+title: "Armed forces"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r import and preperation, message=FALSE, warning=FALSE, results='hide'}
+library(tidyverse)
+library(ggthemes)
+library(RSvgDevice)
+library(stats)
+
+setwd("/Users/Thomas/colourful-facts/guides/building-charts/Scatterplot")
+
+forcesdf <- read_csv("/Users/Thomas/colourful-facts/guides/building-charts/Scatterplot/armed-forces-data/armed-forces.csv")
+
+names(forcesdf)[5:20] <- substring(names(forcesdf[,c(5:20)]), 1, 4)
+
+
+# Select the needed column names
+forces <- forcesdf %>%
+  rename(Country.Name = `Country Name`,
+         Country.Code = `Country Code`) %>%
+  select(Country.Name, Country.Code, starts_with("20")) %>%
+  gather(c(`2000`:`2015`), key = Year, value = Armed.Forces) # Tiding the data in column: years and value (Armed.Forces)
+
+# Remove rows with NA values
+forces <- forces[complete.cases(forces),]
+
+forces$Year <- str_sub(forces$Year, start = 1, end = 4)
+
+forces
+```
+
+
+```{r plot1}
+# Check which aggregates to omit to only keep countries.
+View(forces %>%
+  filter(Armed.Forces > 1000000) %>%
+  group_by(Country.Name) %>%
+  summarise(Total.Years = sum(Armed.Forces)))
+
+# China, India, North Korea and United States have more than 1 million armed forces per year.
+forces %>%
+  
+
+forces %>%
+  group_by(Year) %>%
+  filter(Armed.Forces < 1600000) %>%
+ggplot(aes(x = Armed.Forces)) +
+  geom_histogram()
+```
+
+
+```{r export, message=FALSE, warning=FALSE, results='hide'}
+devSVG("/Users/Thomas/Work/Projects/plot1.svg", width = 5.12, height = 5.12)
+plot(plot1)
+dev.off()
+```
