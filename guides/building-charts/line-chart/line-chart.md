@@ -1,7 +1,7 @@
 Line chart
 ================
 
-In this document examples of the use of line charts. Maybe not the most exciting topic: the Trend of collected domestic waste. However, it was a just a practice in line charts. Data was retrieved from the [CBS](http://statline.cbs.nl/Statweb/).
+In this document examples of the use of line charts. Maybe not the most exciting topic: the Trend of collected domestic waste. However, it's just an excercise in line charts. Data was retrieved from the [CBS](http://statline.cbs.nl/Statweb/).
 
 Data import and preperation.
 ----------------------------
@@ -45,7 +45,9 @@ plotTotal <- df %>%
                      breaks = seq(0,2100,300)) +
   theme_fivethirtyeight() +
   theme(panel.grid.major.x = element_blank(),
-        panel.grid.major.y = element_line(size = 0.5)) +
+        panel.grid.major.y = element_line(size = 0.5),
+        plot.background = element_rect(fill = "#F5F0E5"),
+        panel.background = element_rect(fill = "#F5F0E5")) +
   labs(title = "All counties' waste per year",
        subtitle = "Outliers can skew the mean (red line).") +
   annotate("label", x = 2006, y = 700, label = "Average", colour = "#F44336")
@@ -53,7 +55,7 @@ plotTotal <- df %>%
 plotTotal
 ```
 
-![](line-chart_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-1-1.png)
+![](line-chart_files/figure-markdown_github-ascii_identifiers/plot-totals-1.png)
 
 Plotting without outliers
 -------------------------
@@ -74,7 +76,9 @@ plotNoOutliers <- df %>%
                      breaks = seq(0,900,100)) +
   scale_x_continuous(breaks = seq(2001,2015,2)) +
   theme_fivethirtyeight() +
-  theme(panel.grid.major.y = element_line(size = 0.5)) +
+  theme(panel.grid.major.y = element_line(size = 0.5),
+        plot.background = element_rect(fill = "#F5F0E5"),
+        panel.background = element_rect(fill = "#F5F0E5")) +
   labs(title = "Counties' waste per year without outliers",
        subtitle = "Zoomed in plot and the downwards trend appears. Although not as steep as we\nthought. Do the NA values have a bigger impact than we thought?") +
   annotate("label", x = 2006, y = 620, label = "Average", colour = "#F44336")
@@ -82,7 +86,7 @@ plotNoOutliers <- df %>%
 plotNoOutliers
 ```
 
-![](line-chart_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-2-1.png)
+![](line-chart_files/figure-markdown_github-ascii_identifiers/plot-no-outliers-1.png)
 
 Taking a closer look at the NA values
 -------------------------------------
@@ -111,13 +115,26 @@ plotNA <- NaPerYear %>%
   geom_point(colour = "#004D40") +
   scale_y_continuous(limits = c(75,200)) +
   theme_fivethirtyeight() +
+  theme(plot.background = element_rect(fill = "#F5F0E5"),
+        panel.background = element_rect(fill = "#F5F0E5"))
   labs(title = "Number of missing values (NA's) in data frame\nis increasing",
        subtitle = "This can be the reason behind the country's waste decrease.")
+```
 
+    ## $title
+    ## [1] "Number of missing values (NA's) in data frame\nis increasing"
+    ## 
+    ## $subtitle
+    ## [1] "This can be the reason behind the country's waste decrease."
+    ## 
+    ## attr(,"class")
+    ## [1] "labels"
+
+``` r
 plotNA
 ```
 
-![](line-chart_files/figure-markdown_github-ascii_identifiers/NA%20plot-1.png)
+![](line-chart_files/figure-markdown_github-ascii_identifiers/NA-plot-1.png)
 
 Quickest growing cities.
 ------------------------
@@ -181,9 +198,13 @@ bigCities2 %>%
                      breaks = seq(0,700,100)) +
   scale_x_continuous(breaks = seq(2001,2015,2)) +
   theme_fivethirtyeight() +
-  theme(panel.grid.major.y = element_line(size = 0.5)) +
-  labs(title = "Daling huishoudelijk afval 10 grootste\ngemeenten Nederland") +
+  theme(panel.grid.major.y = element_line(size = 0.5),
+        plot.background = element_rect(fill = "#F5F0E5"),
+        panel.background = element_rect(fill = "#F5F0E5"),
+        legend.background = element_rect(fill = "#F5F0E5"),
+        legend.key = element_rect(fill = "#F5F0E5")) +
+  labs(title = "Amount of waste is decreasing in top 10 biggest\ncities") +
   annotate("label", x = 2004, y = 575, label = "Average")
 ```
 
-![](line-chart_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-4-1.png)
+![](line-chart_files/figure-markdown_github-ascii_identifiers/plot-big-cities-1.png)

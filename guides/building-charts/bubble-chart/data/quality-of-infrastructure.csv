@@ -1,0 +1,218 @@
+Country_Name,Country_Code,quality.of.infrastructure
+Afghanistan,AFG,..
+Albania,ALB,4.151210169
+Algeria,DZA,2.988973396
+American Samoa,ASM,..
+Andorra,AND,..
+Angola,AGO,..
+Antigua and Barbuda,ATG,..
+Argentina,ARG,3.828925581
+Armenia,ARM,2.125590811
+Aruba,ABW,..
+Australia,AUS,4.986503444
+Austria,AUT,4.017461786
+Azerbaijan,AZE,4.259905819
+"Bahamas, The",BHS,..
+Bahrain,BHR,5.398831135
+Bangladesh,BGD,3.558376581
+Barbados,BRB,..
+Belarus,BLR,..
+Belgium,BEL,6.308197974
+Belize,BLZ,..
+Benin,BEN,3.358208895
+Bermuda,BMU,..
+Bhutan,BTN,1.827674093
+Bolivia,BOL,2.078424962
+Bosnia and Herzegovina,BIH,2.048192739
+Botswana,BWA,2.715542638
+Brazil,BRA,2.705457549
+British Virgin Islands,VGB,..
+Brunei Darussalam,BRN,..
+Bulgaria,BGR,3.905178362
+Burkina Faso,BFA,..
+Burundi,BDI,2.780635781
+Cabo Verde,CPV,3.677561023
+Cambodia,KHM,3.705970262
+Cameroon,CMR,3.276135193
+Canada,CAN,5.458973778
+Cayman Islands,CYM,..
+Central African Republic,CAF,..
+Chad,TCD,1.371974387
+Channel Islands,CHI,..
+Chile,CHL,4.906070468
+China,CHN,4.548804854
+Colombia,COL,3.64999392
+Comoros,COM,..
+"Congo, Dem. Rep.",COD,..
+"Congo, Rep.",COG,..
+Costa Rica,CRI,3.137591084
+Cote d'Ivoire,CIV,5.234129965
+Croatia,HRV,4.54886002
+Cuba,CUB,..
+Curacao,CUW,..
+Cyprus,CYP,4.420815453
+Czech Republic,CZE,3.603684416
+Denmark,DNK,5.759602588
+Djibouti,DJI,..
+Dominica,DMA,..
+Dominican Republic,DOM,4.518985402
+Ecuador,ECU,4.839285851
+"Egypt, Arab Rep.",EGY,4.327892739
+El Salvador,SLV,4.014181998
+Equatorial Guinea,GNQ,..
+Eritrea,ERI,..
+Estonia,EST,5.547498771
+Ethiopia,ETH,3.195296797
+Faroe Islands,FRO,..
+Fiji,FJI,..
+Finland,FIN,6.361369204
+France,FRA,5.280860484
+French Polynesia,PYF,..
+Gabon,GAB,3.174314548
+"Gambia, The",GMB,4.116887355
+Georgia,GEO,3.991629663
+Germany,DEU,5.609588206
+Ghana,GHA,3.503800139
+Gibraltar,GIB,..
+Greece,GRC,4.593618812
+Greenland,GRL,..
+Grenada,GRD,..
+Guam,GUM,..
+Guatemala,GTM,3.879777871
+Guinea,GIN,2.945518834
+Guinea-Bissau,GNB,..
+Guyana,GUY,3.621834209
+Haiti,HTI,2.561020059
+Honduras,HND,4.62820501
+"Hong Kong SAR, China",HKG,6.352012687
+Hungary,HUN,3.37181917
+Iceland,ISL,5.976981395
+India,IND,4.207172308
+Indonesia,IDN,3.812931974
+"Iran, Islamic Rep.",IRN,3.904708967
+Iraq,IRQ,..
+Ireland,IRL,5.326941565
+Isle of Man,IMN,..
+Israel,ISR,4.006035322
+Italy,ITA,4.320676729
+Jamaica,JAM,4.65090092
+Japan,JPN,5.400942233
+Jordan,JOR,3.995273429
+Kazakhstan,KAZ,2.912248952
+Kenya,KEN,4.150855252
+Kiribati,KIR,..
+"Korea, Dem. People’s Rep.",PRK,..
+"Korea, Rep.",KOR,5.234806204
+Kosovo,XKX,..
+Kuwait,KWT,3.976525742
+Kyrgyz Republic,KGZ,1.500406062
+Lao PDR,LAO,2.178439316
+Latvia,LVA,5.18019421
+Lebanon,LBN,3.855434406
+Lesotho,LSO,2.706375655
+Liberia,LBR,3.599999905
+Libya,LBY,..
+Liechtenstein,LIE,..
+Lithuania,LTU,4.854908751
+Luxembourg,LUX,4.682100181
+"Macao SAR, China",MAC,..
+"Macedonia, FYR",MKD,3.595376561
+Madagascar,MDG,3.198111414
+Malawi,MWI,2.203982791
+Malaysia,MYS,5.565850905
+Maldives,MDV,..
+Mali,MLI,2.494941214
+Malta,MLT,5.232202516
+Marshall Islands,MHL,..
+Mauritania,MRT,2.702978218
+Mauritius,MUS,4.748386113
+Mexico,MEX,4.306431712
+"Micronesia, Fed. Sts.",FSM,..
+Moldova,MDA,2.187036319
+Monaco,MCO,..
+Mongolia,MNG,1.388599312
+Montenegro,MNE,4.176017837
+Morocco,MAR,4.777542232
+Mozambique,MOZ,3.602159638
+Myanmar,MMR,2.62268482
+Namibia,NAM,5.178322257
+Nauru,NRU,..
+Nepal,NPL,1.561029429
+Netherlands,NLD,6.766418773
+New Caledonia,NCL,..
+New Zealand,NZL,5.466629383
+Nicaragua,NIC,2.838179278
+Niger,NER,..
+Nigeria,NGA,2.978668371
+Northern Mariana Islands,MNP,..
+Norway,NOR,5.532298957
+Oman,OMN,4.858365007
+Pakistan,PAK,4.079903429
+Palau,PLW,..
+Panama,PAN,6.252390009
+Papua New Guinea,PNG,..
+Paraguay,PRY,3.067801673
+Peru,PER,3.646103884
+Philippines,PHL,3.22093564
+Poland,POL,4.021324783
+Portugal,PRT,5.304742397
+Puerto Rico,PRI,..
+Qatar,QAT,5.595322221
+Romania,ROU,3.419629832
+Russian Federation,RUS,3.938319804
+Rwanda,RWA,3.335622747
+Samoa,WSM,..
+San Marino,SMR,..
+Sao Tome and Principe,STP,..
+Saudi Arabia,SAU,4.843094238
+Senegal,SEN,4.134449688
+Serbia,SRB,2.672683491
+Seychelles,SYC,4.959871492
+Sierra Leone,SLE,2.828092846
+Singapore,SGP,6.66474054
+Sint Maarten (Dutch part),SXM,..
+Slovak Republic,SVK,3.164993681
+Slovenia,SVN,4.96997423
+Solomon Islands,SLB,..
+Somalia,SOM,..
+South Africa,ZAF,4.8698817
+South Sudan,SSD,..
+Spain,ESP,5.652581036
+Sri Lanka,LKA,4.275085791
+St. Kitts and Nevis,KNA,..
+St. Lucia,LCA,..
+St. Martin (French part),MAF,..
+St. Vincent and the Grenadines,VCT,..
+Sudan,SDN,..
+Suriname,SUR,..
+Swaziland,SWZ,3.448592603
+Sweden,SWE,5.620067571
+Switzerland,CHE,4.622662931
+Syrian Arab Republic,SYR,..
+Tajikistan,TJK,2.097190657
+Tanzania,TZA,3.380111122
+Thailand,THA,4.490343081
+Timor-Leste,TLS,..
+Togo,TGO,..
+Tonga,TON,..
+Trinidad and Tobago,TTO,3.998805971
+Tunisia,TUN,3.564477007
+Turkey,TUR,4.488519844
+Turkmenistan,TKM,..
+Turks and Caicos Islands,TCA,..
+Tuvalu,TUV,..
+Uganda,UGA,2.533933393
+Ukraine,UKR,3.161451566
+United Arab Emirates,ARE,6.472991241
+United Kingdom,GBR,5.67227357
+United States,USA,5.72790979
+Uruguay,URY,4.698681604
+Uzbekistan,UZB,..
+Vanuatu,VUT,..
+"Venezuela, RB",VEN,2.554572707
+Vietnam,VNM,3.913816844
+Virgin Islands (U.S.),VIR,..
+West Bank and Gaza,PSE,..
+"Yemen, Rep.",YEM,..
+Zambia,ZMB,2.178387154
+Zimbabwe,ZWE,3.244776683
