@@ -15,25 +15,26 @@ library(stats)
 
 setwd("/Users/Thomas/colourful-facts/guides/building-charts/Scatterplot")
 
+# Reading data
 forcesdf <- read_csv("/Users/Thomas/colourful-facts/guides/building-charts/Scatterplot/armed-forces-data/armed-forces.csv")
 
+# Change the names of the year columns
 names(forcesdf)[5:20] <- substring(names(forcesdf[,c(5:20)]), 1, 4)
-
 
 # Select the needed column names
 forces <- forcesdf %>%
   rename(Country.Name = `Country Name`,
          Country.Code = `Country Code`) %>%
   select(Country.Name, Country.Code, starts_with("20")) %>%
-  gather(c(`2000`:`2015`), key = Year, value = Armed.Forces) # Tiding the data in column: years and value (Armed.Forces)
+  # Tiding the data in column: years and value (Armed.Forces)
+  gather(c(`2000`:`2015`), key = Year, value = Armed.Forces) %>%
+  mutate(Armed.Forces = as.numeric(Armed.Forces))
 
 # Remove rows with NA values
 forces <- forces[complete.cases(forces),]
 
-forces$Year <- str_sub(forces$Year, start = 1, end = 4)
-
-forces
 ```
+
 
 
 ```{r plot1}
