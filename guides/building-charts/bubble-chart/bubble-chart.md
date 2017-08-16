@@ -1,17 +1,12 @@
----
-title: "Bubble chart"
-output: github_document
----
+Bubble chart
+================
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 In this report we search for correlations between traffic deaths, the quality of infrastructures and alcohol consumption.
 
 fist things first loading the needed packages.
-```{r libraries, message=FALSE, warning=FALSE, results='hide'}
+
+``` r
 library(tidyverse)
-library(plyr)
 library(ggthemes)
 library(RSvgDevice)
 library(stats)
@@ -19,15 +14,16 @@ library(ggrepel)
 library(rvest)
 library(extrafont)
 library(countrycode)
-
 ```
 
-## Infrastructure quality data preperation
+Infrastructure quality data preperation
+---------------------------------------
 
 Retrieved from the [World Bank data base 2015](http://databank.worldbank.org/data/reports.aspx?source=2&series=IQ.WEF.PORT.XQ&country=#). The closer to the number 1 means the country has a good infrastructure. The closer to the number 7 means that the country has a bad infrastructure.
-```{r data-road-quality, message=FALSE, warning=FALSE, results='hide'}
+
+``` r
 # Reading data, quality of infrastructure from World Bank 1 = bad, 7 = good.
-infrastructure <- read_csv("/Users/Thomas/colourful-facts/guides/building-charts/scatterplot/data/quality-of-infrastructure.csv")
+infrastructure <- read_csv("/Users/Thomas/colourful-facts/guides/building-charts/bubble-chart/data/quality-of-infrastructure.csv")
 # Convert column into numeric
 infrastructure$quality.of.infrastructure <- as.numeric(infrastructure$quality.of.infrastructure)
 # Remove rows with numerics
@@ -38,12 +34,14 @@ infrastructure <- as.tibble(infrastructure)
 infrastructure <- dplyr::rename(infrastructure, Code = Country_Code)
 ```
 
-## Traffic deaths per 100,000 citizens data preperation
+Traffic deaths per 100,000 citizens data preperation
+----------------------------------------------------
 
 Retrieved from a [2015 report from the World Health Organisation](http://www.who.int/violence_injury_prevention/road_safety_status/2015/en/). It was in PDF format so I first had to scrape it with Tabula software. Then I cleaned it a bit in google spreasheets, so I didn't have to transform the data a lot.
-```{r data-traffic-deaths, message=FALSE, warning=FALSE, results='hide'}
+
+``` r
 # Estimated traffic death rates per 100.000
-trafficDeaths <- read_csv("/Users/Thomas/colourful-facts/guides/building-charts/scatterplot/data/estimated-traffic-death-rates-2015.csv")
+trafficDeaths <- read_csv("/Users/Thomas/colourful-facts/guides/building-charts/bubble-chart/data/estimated-traffic-death-rates-2015.csv")
 # Prepare population dataframe
 trafficDeaths$traffic.deaths.100000 <- as.numeric(trafficDeaths$traffic.deaths.100000)
 # Add column with the country codes to later join the two datasets.
@@ -53,10 +51,12 @@ trafficDeaths <- trafficDeaths %>%
   select(1,3,2)
 ```
 
-## Alcohol consumption per capita in liters data preperation
+Alcohol consumption per capita in liters data preperation
+---------------------------------------------------------
 
-Very recent data was hard to come by, the data is from 2010. I found [the data on wikipedia](https://en.wikipedia.org/wiki/List_of_countries_by_alcohol_consumption_per_capita#cite_note-2). The table on the page uses the data from the World Helath Organisation.  
-```{r data-alcohol-consumption, message=FALSE, warning=FALSE, results='hide'}
+Very recent data was hard to come by, the data is from 2010. I found [the data on wikipedia](https://en.wikipedia.org/wiki/List_of_countries_by_alcohol_consumption_per_capita#cite_note-2). The table on the page uses the data from the World Helath Organisation.
+
+``` r
 url <- "https://en.wikipedia.org/wiki/List_of_countries_by_alcohol_consumption_per_capita#cite_note-2"
 
 # Pure alcohol consumption among persons (age 15+) in liters per capita per year, 2010
@@ -75,8 +75,10 @@ alcoholConsumption <- alcoholConsumption %>% mutate(Country,
   select(1,3,2)
 ```
 
-## Joining the three dataframes to one
-```{r joining-dataframes, message=FALSE, warning=FALSE, results='hide'}
+Joining the three dataframes to one
+-----------------------------------
+
+``` r
 # Joining all three dataframes
 merged <- left_join(infrastructure, trafficDeaths, by = "Code") %>%
   left_join(., alcoholConsumption, by = "Code")
@@ -94,8 +96,10 @@ merged <- merged %>%
          Country = Country.x)
 ```
 
-## Fianally time for plotting
-```{r plot1-all-countries, message=FALSE, warning=FALSE, fig.align="center"}
+Fianally time for plotting
+--------------------------
+
+``` r
 merged %>% 
   ggplot(aes(x = infrastructure, y = traffic.deaths)) +
   geom_point(aes(size = alcohol.consumption),
@@ -130,9 +134,14 @@ merged %>%
   annotate("text", x = 5, y = 15, label = "Average", colour = "blue")
 ```
 
-## A high alcohol consumption doesn't have to lead to more traffic deaths in a country
-Alcohol isn't the only factor. Countries with in comparison a high alcohol consumption **can** have a very low number of traffic deaths. 
-```{r plot2-alcohol-consumption, message=FALSE, warning=FALSE, fig.align="center"}
+<img src="bubble-chart_files/figure-markdown_github-ascii_identifiers/plot1-all-countries-1.png" style="display: block; margin: auto;" />
+
+A high alcohol consumption doesn't have to lead to more traffic deaths in a country
+-----------------------------------------------------------------------------------
+
+Alcohol isn't the only factor. Countries with in comparison a high alcohol consumption **can** have a very low number of traffic deaths.
+
+``` r
 merged %>% 
   ggplot(aes(x = alcohol.consumption, y = traffic.deaths)) +
   geom_point(alpha = 0.7,
@@ -151,3 +160,4 @@ merged %>%
        y = "Traffic deaths per 100,000 citizens")
 ```
 
+<img src="bubble-chart_files/figure-markdown_github-ascii_identifiers/plot2-alcohol-consumption-1.png" style="display: block; margin: auto;" />
