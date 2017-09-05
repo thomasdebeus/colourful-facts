@@ -105,7 +105,7 @@ Tucker S. C.,The Encyclopedia of the Vietnam War, Volume I, p.176.
 * “Population and Development Review”, Volume 21, Issue 4, p.790.
 * “Associated Press”, 3 April 1995
 
-For the data frame I took the mean of the lowest estimates and the highest estimates.
+For the `Estimated.detahs` in the data frame I took the mean from the lowest estimates and the highest estimates.
 ```{r warCasualties-tibble, warning=FALSE}
 # Tibble of Vietnam War deaths
 warCasualties <- tibble(Who = c("N. Vietnam + communist allies",
@@ -147,3 +147,4 @@ ggplot(aes(x = Estimated.deaths, y = reorder(Who, Estimated.deaths))) +
 
 plot2
 ```
+
