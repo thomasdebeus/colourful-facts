@@ -7,7 +7,7 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-The content of this report shows the code behind two of the three graphics in the article: [Why the U.S. is so popular in Vietnam even after a devastating war](). 
+The content of this report shows the code behind two of the three graphics in the article: [Why the U.S. is so popular in Vietnam even after a devastating war](https://medium.com/tdebeus/why-the-u-s-is-so-insanely-popular-in-vietnam-even-after-a-devastating-war-b33cf6ba63ce). 
 
 * Population distribution in Vietnam.
 * Estimated deaths Vietnam War.
@@ -16,7 +16,6 @@ First things first. We'll import the [Population data](https://esa.un.org/unpd/w
 ```{r import, message=FALSE, warning=FALSE, results='hide'}
 library(tidyverse)
 library(ggthemes)
-library(RSvgDevice)
 
 # Load xlsx Viet Nam population tab
 df <- read.csv2("/Users/Thomas/Work/Projects/Portfolio/vietnam-and-usa/vietnam-population-UN.csv")
@@ -129,7 +128,7 @@ warCasualties
 
 ## Plotting Vietnam war casualties
 
-The following code has a very basic plot as output. Like always I exported the plot and made it way [more attractive in sketch]().  
+The following code has a very basic plot as output. Like always I exported the plot and made it way [more attractive in sketch](https://cdn-images-1.medium.com/max/1080/1*5-M4GcAD9Gd1C9Iltfwbvw.png).  
 
 ```{r war-casualties, message=FALSE, warning=FALSE}
 plot2 <- warCasualties %>%
