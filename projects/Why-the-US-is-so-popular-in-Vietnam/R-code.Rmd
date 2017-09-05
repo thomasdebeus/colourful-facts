@@ -16,7 +16,6 @@ First things first. We'll import the [Population data](https://esa.un.org/unpd/w
 ```{r import, message=FALSE, warning=FALSE, results='hide'}
 library(tidyverse)
 library(ggthemes)
-library(RSvgDevice)
 
 # Load xlsx Viet Nam population tab
 df <- read.csv2("/Users/Thomas/Work/Projects/Portfolio/vietnam-and-usa/vietnam-population-UN.csv")
