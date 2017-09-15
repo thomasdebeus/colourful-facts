@@ -12,4 +12,4 @@ I also keep a folder with ['guides'](https://github.com/thomasdebeus/colourful-f
 
 Much love,
 
-@TdeBeus
+[@TdeBeus](https://twitter.com/TdeBeus)
