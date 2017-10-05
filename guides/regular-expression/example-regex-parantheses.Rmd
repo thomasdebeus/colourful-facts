@@ -1,0 +1,53 @@
+---
+title: "Regular Expression in R example"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r import, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(xlsx)
+# Import dataset
+data <- read.xlsx("~/Work/Projects/Portfolio/asielzoekerbuurten/opvanglocaties_azielzoekers.xlsx", sheetIndex = 1)
+# Convert to tibble
+data <- as.tibble(data)
+```
+
+The following column needs some cleaning up.
+```{r}
+# The column that needs some cleaning up
+data$Locatie
+```
+
+## Regular expression pattern
+
+You usually wouldn't remove these parantheses from this column because they are locations and not cities. Also in this dataset you already have a column with cities: `Plaats`. But just for the sake of practice we will remove the parantheses and its content (and the whitespace between the city name and the parantheses). 
+
+```{r message=FALSE, warning=FALSE}
+# Remove the parentheses and its content
+gsub(" \\([A-Za-z]*\\)", "", as.character(data$Locatie))
+```
+
+```{r}
+# Store in new data column
+data$Locatie <- gsub(".\\([A-Za-z]*\\)", "", as.character(data$Locatie))
+```
+
+When you disect the pattern in the `gsub()` regular expression function you should wncode every character from left to right:
+
+- first you see a white space then
+- `\\(` : Because `(` is a meta character you have to 'escape' it by adding two backslashes in front.
+- `[A-Za-z]*` : This returns any CAPITAL or lower case letter. The `*` says look for 0 or more letters.
+- `\\)` : At last we want to return for the closing parenthesis.
+
+This pattern: `" \\([A-Za-z]*\\)"` will return `(RVB)` but also `(regulier)`. 
+
+## Our new dataset
+```{r}
+data
+```
+
+
