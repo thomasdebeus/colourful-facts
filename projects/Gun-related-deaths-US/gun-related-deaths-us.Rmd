@@ -1,0 +1,94 @@
+---
+title: "Gun related deaths in the US"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r import, message=FALSE, warning=FALSE, results='hide'}
+library(tidyverse)
+library(ggthemes)
+library(RSvgDevice)
+# Import
+data <- read.csv("/Users/Thomas/Work/Projects/random/gun-deaths-america/Mass_Shootings_Gun_Violence_2017.csv")
+```
+
+```{r data-preperation}
+# Convert to tibble
+data <- as.tibble(data)
+# Subset the usable columns
+data <- select(data, c(3:8))
+# Create dataframe with Killed and Injured per day.
+data_per_date <- data %>%
+  group_by(Incident.Date) %>%
+  summarise(Killed = sum(Killed),
+            Injured = sum(Injured))
+# Format date to numeric dates
+data_per_date$Incident.Date <- format(as.Date(data_per_date$Incident.Date, format = "%B %d, %Y"), "%d-%m-%Y")
+# Convert to class: date and sort by date
+data_per_date <- data_per_date %>%
+  mutate(Incident.Date = as.Date(Incident.Date, "%d-%m-%Y")) %>%
+  arrange(Incident.Date)
+# Then the following will get you the european date format style but changes the class back to character, so only for pretty human readable output.
+# data_per_date$Incident.Date <- format(as.Date(data_per_date$Incident.Date, format = "%Y-%m-%d"), "%d-%m-%Y")
+write.csv(data_per_date, file = "/Users/Thomas/Desktop/mass_shootings.csv")
+
+```
+
+
+```{r plot1}
+
+bubble_plot <- data_per_date %>%
+  ggplot(aes(x = Incident.Date, y = 0)) +
+  geom_point(aes(size = Injured),
+             shape = 21,
+             colour = "#F57F17") + # Should be the orange transparant circles 
+  geom_point(aes(size = Killed),
+             alpha = 0.1,
+             colour = "#B71C1C") +
+  scale_size(range = c(0,60)) +
+  scale_x_date(date_labels = "%b", date_breaks = "1 month") +
+  theme_minimal() +
+  theme(legend.position = "none",
+        plot.background = element_rect("#F5F0E5"),
+        panel.grid.major.y = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        panel.grid.major.x = element_line(colour = "#BDBDBD",
+                                          linetype = "dashed"))
+```
+
+```{r plot2}
+data_per_date %>%
+  ggplot() +
+  geom_line(aes(x = Incident.Date, y = Injured, group = 1),
+             colour = "#F57F17") + # Should be the orange transparant circles 
+  geom_line(aes(x = Incident.Date, y = Killed, group = 1),
+             colour = "#B71C1C") +
+  scale_size(range = c(0,60)) +
+  scale_x_date(date_labels = "%b", date_breaks = "1 month") +
+  theme_minimal() +
+  theme(legend.position = "none",
+        plot.background = element_rect("#F5F0E5"),
+        panel.grid.major.y = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        panel.grid.major.x = element_line(colour = "#BDBDBD",
+                                          linetype = "dashed"))
+```
+
+```{r filtering}
+data_per_date %>%
+  summarise(total.killed = sum(Killed),
+            total.injured = sum(Injured)) 
+
+```
+
+
+```{r export, message=FALSE, warning=FALSE, results='hide'}
+devSVG("/Users/Thomas/Work/Projects/Random/gun-deaths-america/mass-shootings-2017-plot.svg", width = 8, height = 5)
+plot(plot1)
+dev.off()
+```
