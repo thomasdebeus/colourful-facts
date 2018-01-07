@@ -1,0 +1,63 @@
+---
+title: "Worst chart ever"
+author: "Thomas de Beus"
+date: "1/7/2018"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(ggthemes)
+library(ggrepel)
+
+# Import data (note that Belgium-Luxembourg is removed for this redesign because of insufficient data from FAO source)
+df <- read_csv("/Users/Thomas/colourful-facts/projects/Redesign-of-worst-chart-ever/FAOSTAT_data_1-7-2018.csv")
+
+# Create workable dataframe
+df <- df %>%
+  mutate(Tonnes_x1000 = Value / 1000, # Smaller number, now in 1000 tonnes
+         Year = as.Date(paste(Year, 1, 1, sep = "-")),
+         Country = gsub("United States of America", "USA", Country),
+         Country = gsub("United Arab Emirates", "U.A.E", Country),
+         Country = as.factor(Country)) %>%
+  group_by(Country) %>%
+  mutate(mean = mean(Tonnes_x1000)) %>%
+  arrange(desc(mean)) %>%
+  select(Country, Year, Tonnes_x1000, mean) 
+
+order <- df %>%
+  arrange(mean) %>%
+  pull(Country) %>%
+  unique() %>%
+  rev()
+
+df$Country_f <- factor(df$Country, levels = order)
+
+# All in one line plot
+df %>%
+  ggplot(aes(x = Year, y = Tonnes_x1000, colour = Country)) +
+  geom_line(size = 0.8) +
+  scale_colour_tableau() +
+  scale_x_date(date_labels = "%y") +
+  facet_wrap( ~ Country_f, ncol = 5) +
+  theme_minimal() +
+  theme(legend.position = 0,
+        plot.caption = element_text(colour = "#9f9f9f"),
+        plot.background = element_rect(fill = "#F5F0E5"),
+        plot.title = element_text(face = "bold"),
+        strip.text = element_text(face = "bold"),
+        plot.subtitle = element_text(colour = "#525252"),
+        panel.grid.major = element_line(colour = "#D9D9D9"),
+        panel.grid.minor = element_line(colour = "#D9D9D9")) +
+  labs(title = "Banana export champ: Ecuador",
+       subtitle = "Banana's in thousand tonnes.",
+       caption = "Source: FAO",
+       x = "",
+       y = "") 
+
+```
+
