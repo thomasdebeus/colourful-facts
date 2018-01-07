@@ -1,7 +1,5 @@
 ---
-title: "Worst chart ever"
-author: "Thomas de Beus"
-date: "1/7/2018"
+title: "Bananas"
 output: github_document
 ---
 
@@ -37,7 +35,7 @@ order <- df %>%
 
 df$Country_f <- factor(df$Country, levels = order)
 
-# All in one line plot
+# Small multiple line plots
 df %>%
   ggplot(aes(x = Year, y = Tonnes_x1000, colour = Country)) +
   geom_line(size = 0.8) +
