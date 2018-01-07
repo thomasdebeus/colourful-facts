@@ -1,6 +1,9 @@
 ---
 title: "Bananas"
-output: github_document
+date: "`r format(Sys.Date())`"
+    output:
+      github_document:
+        keep_md: true
 ---
 
 ```{r setup, include=FALSE}
