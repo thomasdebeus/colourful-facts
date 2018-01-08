@@ -10,7 +10,7 @@ On Twitter I stumbled upon this horrendous 3D bar chart. Looking at the data use
 
 Normally I describe in detail about what improvements can be made, this time I trust my audience to recognise the many pitfalls. Watch it though, [PhillipDRiggs](https://twitter.com/PhilipDRiggs/status/949429633119748096) warns you in his tweet for "post-traumatic viz syndrome".
 
-I do have [a write up on my Medium blog]() describing my redesign choices.
+I do have [a write up on my Medium blog](https://medium.com/tdebeus/redesign-of-a-truly-bananas-chart-1617f930808d) describing my redesign choices.
 
 ## Aquire
 I used data from the Food and Agriculture Organization. They have an awesome data base, [FAOSTAT](http://www.fao.org/faostat/en/#data/TP), where you can create and download your own dataset with ease. You can find and download the dataset I used in this folder as well.
@@ -24,7 +24,6 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r, warning=FALSE, message=FALSE}
 library(tidyverse)
 library(ggthemes)
-library(ggrepel)
 
 # Import data (note that Belgium-Luxembourg is removed for this redesign because of insufficient data from FAO source)
 df <- read_csv("/Users/Thomas/colourful-facts/projects/Redesign-of-worst-chart-ever/FAOSTAT_data_1-7-2018.csv")
