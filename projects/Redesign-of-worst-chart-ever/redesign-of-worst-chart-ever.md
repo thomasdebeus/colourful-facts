@@ -1,25 +1,21 @@
----
-title: "Redesign of a truly Bananas chart"
-date: "`r format(Sys.Date())`"
-output: github_document
----
+Redesign of a truly Bananas chart
+================
+2018-01-08
 
 ![](https://i.pinimg.com/736x/aa/95/9d/aa959d6be07333834c540a138fecada9--line-chart-data-visualization.jpg)
 
-On Twitter I stumbled upon this horrendous 3D bar chart. Looking at the data used it might have been made in 2005. Data visualisation as a skill was yet to be defined. Boy we have come a long way but this was even at the time truly bananas. 
+On Twitter I stumbled upon this horrendous 3D bar chart. Looking at the data used it might have been made in 2005. Data visualisation as a skill was yet to be defined. Boy we have come a long way but this was even at the time truly bananas.
 
 Normally I describe in detail about what can be improved. However, this time I trust my audience to recognise the many pitfalls. Watch it, [PhillipDRiggs](https://twitter.com/PhilipDRiggs/status/949429633119748096) warns us in his tweet for "post-traumatic viz syndrome".
 
-## Aquire
+Aquire
+------
+
 I used data from the Food and Agriculture Organization. They have an awesome data base, [FAOSTAT](http://www.fao.org/faostat/en/#data/TP), where you can create and download your own dataset with ease. You can find and download the dataset I used in this folder as well.
 
 Note: I removed `Belgium-Luxembourg` because there wasn't sufficient data in the FAOSTAT data base.
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-```{r, warning=FALSE, message=FALSE}
+``` r
 library(tidyverse)
 library(ggthemes)
 library(ggrepel)
@@ -28,9 +24,12 @@ library(ggrepel)
 df <- read_csv("/Users/Thomas/colourful-facts/projects/Redesign-of-worst-chart-ever/FAOSTAT_data_1-7-2018.csv")
 ```
 
-## Transform
+Transform
+---------
+
 Prepare data frame for visualisation.
-```{r}
+
+``` r
 # Create workable dataframe
 df <- df %>%
   mutate(Tonnes_x1000 = Value / 1000, # Smaller number, now in 1000 tonnes
@@ -51,9 +50,10 @@ order <- df %>%
 df$Country <- factor(df$Country, levels = order)
 ```
 
-## Visualisation
+Visualisation
+-------------
 
-```{r}
+``` r
 # Create small multiple line plots with `facet_wrap`.
 df %>%
   ggplot(aes(x = Year, y = Tonnes_x1000, colour = Country)) +
@@ -76,6 +76,10 @@ df %>%
        caption = "source: FAO",
        x = "Year",
        y = "") 
-?theme
 ```
 
+![](redesign-of-worst-chart-ever_files/figure-markdown_github/unnamed-chunk-3-1.png)
+
+``` r
+?theme
+```
