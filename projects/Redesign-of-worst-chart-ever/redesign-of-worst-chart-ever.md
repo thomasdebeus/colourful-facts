@@ -6,7 +6,9 @@ Redesign of a truly Bananas chart
 
 On Twitter I stumbled upon this horrendous 3D bar chart. Looking at the data used it might have been made in 2005. Data visualisation as a skill was yet to be defined. Boy we have come a long way but this was even at the time truly bananas.
 
-Normally I describe in detail about what can be improved. However, this time I trust my audience to recognise the many pitfalls. Watch it, [PhillipDRiggs](https://twitter.com/PhilipDRiggs/status/949429633119748096) warns us in his tweet for "post-traumatic viz syndrome".
+Normally I describe in detail about what improvements can be made, this time I trust my audience to recognise the many pitfalls. Watch it though, [PhillipDRiggs](https://twitter.com/PhilipDRiggs/status/949429633119748096) warns you in his tweet for "post-traumatic viz syndrome".
+
+I do have [a write up on my Medium blog]() describing my redesign choices.
 
 Aquire
 ------
@@ -50,15 +52,15 @@ order <- df %>%
 df$Country <- factor(df$Country, levels = order)
 ```
 
-Visualisation
--------------
+Final Visualisation
+-------------------
 
 ``` r
 # Create small multiple line plots with `facet_wrap`.
 df %>%
-  ggplot(aes(x = Year, y = Tonnes_x1000, colour = Country)) +
-  geom_line(size = 0.8) +
-  scale_colour_tableau() +
+  ggplot(aes(x = Year, y = Tonnes_x1000, fill = Country)) +
+  geom_area(size = 0.8) +
+  scale_fill_tableau() +
   scale_x_date(date_labels = "%y") +
   facet_wrap( ~ Country, ncol = 5) +
   theme_minimal() +
@@ -79,7 +81,3 @@ df %>%
 ```
 
 ![](redesign-of-worst-chart-ever_files/figure-markdown_github/unnamed-chunk-3-1.png)
-
-``` r
-?theme
-```
