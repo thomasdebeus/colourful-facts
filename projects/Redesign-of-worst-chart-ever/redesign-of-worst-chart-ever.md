@@ -8,7 +8,7 @@ On Twitter I stumbled upon this horrendous 3D bar chart. Looking at the data use
 
 Normally I describe in detail about what improvements can be made, this time I trust my audience to recognise the many pitfalls. Watch it though, [PhillipDRiggs](https://twitter.com/PhilipDRiggs/status/949429633119748096) warns you in his tweet for "post-traumatic viz syndrome".
 
-I do have [a write up on my Medium blog]() describing my redesign choices.
+I do have [a write up on my Medium blog](https://medium.com/tdebeus/redesign-of-a-truly-bananas-chart-1617f930808d) describing my redesign choices.
 
 Aquire
 ------
@@ -20,7 +20,6 @@ Note: I removed `Belgium-Luxembourg` because there wasn't sufficient data in the
 ``` r
 library(tidyverse)
 library(ggthemes)
-library(ggrepel)
 
 # Import data (note that Belgium-Luxembourg is removed for this redesign because of insufficient data from FAO source)
 df <- read_csv("/Users/Thomas/colourful-facts/projects/Redesign-of-worst-chart-ever/FAOSTAT_data_1-7-2018.csv")
